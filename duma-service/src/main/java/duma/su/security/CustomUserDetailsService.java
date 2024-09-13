@@ -38,7 +38,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = new User();
         user.setId(sequence++);
         user.setLogin(login);
-        //user.setRole(role);
+        user.setRole(role);
         user.setPassword(password);
         repository.save(user);
         System.out.println("findByLogin " + repository.findByLogin(login));

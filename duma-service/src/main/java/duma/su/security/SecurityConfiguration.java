@@ -13,8 +13,8 @@ public class SecurityConfiguration {
 
         return httpSecurity
                 .authorizeHttpRequests(register -> register
-                        .requestMatchers("/home/**").permitAll()
-                        //.requestMatchers("/issue/**").permitAll()
+                                .requestMatchers("/home/index").hasAuthority("admin")
+                                .requestMatchers("/home/dum").permitAll()
                 )
                 .formLogin(Customizer.withDefaults())
                 .build();

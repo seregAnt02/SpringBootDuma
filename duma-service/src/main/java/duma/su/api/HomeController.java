@@ -29,4 +29,9 @@ public class HomeController {
         log.info("Список моделей" + dum);
         return "index";
     }
+
+    @GetMapping(path = "/index")
+    public String admin(){
+        return "admin";
+    }
 }
