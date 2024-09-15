@@ -1,6 +1,7 @@
 package duma.su.api;
 
 import duma.su.model.Dum;
+import duma.su.model.Parameter;
 import duma.su.services.StandartDumService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,16 +23,18 @@ public class HomeController {
         this.services = services;
     }
 
-    @GetMapping(path = "/dum")
+    /*@GetMapping(path = "/dum")
     public String list(Model model){
         List<Dum> dum = this.services.getAllDum();
         model.addAttribute("items", dum);
         log.info("Список моделей" + dum);
         return "index";
-    }
+    }*/
 
     @GetMapping(path = "/index")
-    public String admin(){
-        return "admin";
+    public String admin(Model model){
+        Parameter parameter = this.services.createParameter();
+        model.addAttribute("Model", parameter);
+        return "index";
     }
 }

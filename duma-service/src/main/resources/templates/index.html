@@ -2,13 +2,42 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Index</title>
 </head>
 <body>
-    Hello world!!!
-    <h1>List of items</h1><br>
-    <ul>
+<h3>Model Parameter</h3>
+<table border="1" style="width:300px">
+    <tr style="background-color:dodgerblue;text-align:center">
+        <td>Id</td>
+        <td>Date</td>
+        <td>Parameter</td>
+        <td>CodParameter</td>
+        <td>LastUpdate</td>
+        <td>Meaning</td>
+    </tr>
+    <tr th:each="model : ${Model}">
+        <td style="text-align:center"><p th:text="${model.id}"></p></td>
+        <td style="text-align:center"><p th:text="${model.datetime}"></p></td>
+        <td style="text-align:center"><p th:text="${model.parameter}"></p></td>
+        <td style="text-align:center"><p th:text="${model.codParameter}"></p></td>
+        <td style="text-align:center"><p th:text="${model.lastUpdate}"></p></td>
+        <td style="text-align:center"><p th:text="${model.meaning}"></p></td>
+    </tr>
+</table>
+   <!-- <ul>
         <li th:each="item : ${items}"  th:text="${item}"></li>
-    </ul>
+    </ul>-->
+
+   <!-- <table border="1" style="width:300px">
+        <tr style="background-color:dodgerblue;text-align:center">
+            <td>Id</td>
+            <td>Status</td>
+        </tr>
+        <tr th:each="item : ${items}">
+            <td style="text-align:center"><p th:text="${item.id}"></p></td>
+            <td style="text-align:center"><p th:text="${item.status}"></p></td>
+        </tr>
+    </table>-->
+
 </body>
 </html>

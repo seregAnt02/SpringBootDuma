@@ -8,12 +8,14 @@ public class structure {
         String index(){
             return null;
         }
+    }
+
+    class RestController{
         Parameter create(){return null;}
         Parameter add(){return null;}
         Parameter edit(){return null;}
         Parameter delete(){return null;}
     }
-
     class AccountController{
         void register(){}
         void getLogin(){}

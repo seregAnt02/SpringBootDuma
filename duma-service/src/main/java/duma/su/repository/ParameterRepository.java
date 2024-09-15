@@ -1,0 +1,9 @@
+package duma.su.repository;
+
+import duma.su.model.Parameter;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+/*@Repository*/
+/*public interface ParameterRepository extends JpaRepository<Long, Parameter> {
+}*/

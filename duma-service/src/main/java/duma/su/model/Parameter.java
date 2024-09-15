@@ -8,7 +8,7 @@ import java.util.Date;
 public class Parameter {
     @Setter
     @Getter
-    public int id;
+    public long id;
 
     @Setter
     @Getter
@@ -20,11 +20,11 @@ public class Parameter {
 
     @Setter
     @Getter
-    public String codparameter;
+    public String codParameter;
 
     @Setter
     @Getter
-    public String lastupdate;
+    public String lastUpdate;
 
     @Setter
     @Getter
@@ -32,6 +32,5 @@ public class Parameter {
 
     @Setter
     @Getter
-    public int DumaId;// внешний ключь
-    //public structure.Duma duma = new structure.Duma();//навигационное свойство
+    public int DumId;// внешний ключь
 }
