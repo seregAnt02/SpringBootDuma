@@ -18,22 +18,25 @@ public class StandartParameterService {
 
     public StandartParameterService(ParameterRepository repository){
         this.repository = repository;
+
+        createParameter("modbus #1");
+        createParameter("modbus #2");
     }
 
 
-    public Parameter createParameter(){
+    public Parameter createParameter(String nameParameter){
         Parameter parameter = new Parameter();
         parameter.setId(sequence++);
         parameter.setDatetime(new Date());
-        parameter.setParameter("modbus");
+        parameter.setParameter(nameParameter);
         parameter.setCodParameter("MQ");
         parameter.setLastUpdate("MQ-2");
         parameter.setMeaning(120);
-
+        this.repository.save(parameter);
         return parameter;
     }
 
-  /*  public List<Dum> getAllDum(){
+    public List<Parameter> getAllParameter(){
         return this.repository.findAll();
-    }*/
+    }
 }

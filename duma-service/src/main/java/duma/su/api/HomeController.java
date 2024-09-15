@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Slf4j
 @Controller
 @RequestMapping(path = "/home")
@@ -30,8 +32,8 @@ public class HomeController {
 
     @GetMapping(path = "/index")
     public String index(Model model){
-        Parameter parameter = this.services.createParameter();
-        model.addAttribute("Model", parameter);
+        List<Parameter> parameter = this.services.getAllParameter();
+        model.addAttribute("Models", parameter);
         return "index";
     }
 }
