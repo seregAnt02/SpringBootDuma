@@ -29,7 +29,7 @@ public class HomeController {
     }*/
 
     @GetMapping(path = "/index")
-    public String admin(Model model){
+    public String index(Model model){
         Parameter parameter = this.services.createParameter();
         model.addAttribute("Model", parameter);
         return "index";
