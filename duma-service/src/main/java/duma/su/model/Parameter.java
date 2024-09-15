@@ -1,36 +1,37 @@
 package duma.su.model;
 
+import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
 
+@Entity
+@Table(name = "parameters")
+@Data
 public class Parameter {
-    @Setter
-    @Getter
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
 
-    @Setter
-    @Getter
+
+    @Column(name = "datetime")
     public Date datetime;
 
-    @Setter
-    @Getter
+    @Column(name = "parameter")
     public String parameter;
 
-    @Setter
-    @Getter
+    @Column(name = "codParameter")
     public String codParameter;
 
-    @Setter
-    @Getter
+    @Column(name = "lastUpdate")
     public String lastUpdate;
 
-    @Setter
-    @Getter
+    @Column(name = "meaning")
     public int meaning;
 
-    @Setter
-    @Getter
-    public int DumId;// внешний ключь
+
+    //public int DumId;// внешний ключь
 }

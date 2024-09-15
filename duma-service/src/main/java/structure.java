@@ -1,3 +1,4 @@
+import duma.su.model.Parameter;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
@@ -6,11 +7,11 @@ public class structure {
 
     class HomeController{
         String index(){
-            return null;
+            return "index";
         }
     }
 
-    class RestController{
+    class RestApiController{
         Parameter create(){return null;}
         Parameter add(){return null;}
         Parameter edit(){return null;}
@@ -22,6 +23,9 @@ public class structure {
     }
 
 
+    class StandartParameterService{
+        Parameter createParameter(){return null;}
+    }
     class RegisterModel
     {
         @Setter
