@@ -21,7 +21,8 @@ public class RestApiController {
 
     @GetMapping(path = "/create")
     public void Create(){
-
+        Parameter parameter = services.createParameter("modbus #3");
+        log.info("create #" + parameter.getId());
     }
 
 }

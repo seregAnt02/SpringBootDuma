@@ -2,6 +2,7 @@ import duma.su.model.Parameter;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
+import java.util.List;
 
 public class structure {
 
@@ -25,6 +26,7 @@ public class structure {
 
     class StandartParameterService{
         Parameter createParameter(){return null;}
+        List<Parameter> getAllParameter(){return null; }
     }
     class RegisterModel
     {
