@@ -16,7 +16,7 @@ public class SecurityConfiguration {
         return httpSecurity
                 .authorizeHttpRequests(register -> register
                                 .requestMatchers("/home/index").hasAuthority("admin")
-                                .requestMatchers("/home/dum").permitAll()
+                                .requestMatchers("/parameter/**").permitAll()
                 )
                 .formLogin(Customizer.withDefaults())
                 .build();

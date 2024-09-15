@@ -23,6 +23,15 @@ public class StandartParameterService {
         createParameter("modbus #2");
     }
 
+    public Parameter edit(Parameter parameter){
+        Parameter model = new Parameter();
+        model.setDatetime(parameter.getDatetime());
+        model.setParameter(parameter.getParameter());
+        model.setCodParameter(parameter.getCodParameter());
+        model.setLastUpdate(parameter.getLastUpdate());
+        model.setMeaning(parameter.getMeaning());
+        return model;
+    }
 
     public Parameter createParameter(String nameParameter){
         Parameter parameter = new Parameter();

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Slf4j
 @RestController
@@ -20,9 +22,18 @@ public class RestApiController {
     }
 
     @GetMapping(path = "/create")
-    public void Create(){
+    public RedirectView Create(RedirectAttributes attributes){
         Parameter parameter = services.createParameter("modbus #3");
         log.info("create #" + parameter.getId());
+        return new RedirectView("/home/index");
     }
+
+    /*@GetMapping("/redirectWithRedirectView")
+    public RedirectView redirectWithUsingRedirectView(
+            RedirectAttributes attributes) {
+        attributes.addFlashAttribute("flashAttribute", "redirectWithRedirectView");
+        attributes.addAttribute("attribute", "redirectWithRedirectView");
+        return new RedirectView("redirectedUrl");
+    }*/
 
 }

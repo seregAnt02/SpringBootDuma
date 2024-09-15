@@ -14,7 +14,6 @@ public class structure {
 
     class RestApiController{
         Parameter create(){return null;}
-        Parameter add(){return null;}
         Parameter edit(){return null;}
         Parameter delete(){return null;}
     }
