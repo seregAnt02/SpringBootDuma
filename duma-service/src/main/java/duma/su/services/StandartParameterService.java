@@ -1,11 +1,11 @@
 package duma.su.services;
 
-import duma.su.model.Dum;
 import duma.su.model.Parameter;
 import duma.su.repository.ParameterRepository;
 import lombok.extern.slf4j.Slf4j;
 //import org.hibernate.mapping.List;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 import java.util.Date;
@@ -19,21 +19,22 @@ public class StandartParameterService {
     public StandartParameterService(ParameterRepository repository){
         this.repository = repository;
 
-        createParameter("modbus #1");
-        createParameter("modbus #2");
+        add("modbus #1");
+        add("modbus #2");
     }
 
-    public Parameter edit(Parameter parameter){
+    public void update(Parameter parameter){
         Parameter model = new Parameter();
+        model.setId(parameter.getId());
         model.setDatetime(parameter.getDatetime());
         model.setParameter(parameter.getParameter());
         model.setCodParameter(parameter.getCodParameter());
         model.setLastUpdate(parameter.getLastUpdate());
         model.setMeaning(parameter.getMeaning());
-        return model;
+        this.repository.save(model);
     }
 
-    public Parameter createParameter(String nameParameter){
+    public Parameter add(String nameParameter){
         Parameter parameter = new Parameter();
         parameter.setId(sequence++);
         parameter.setDatetime(new Date());

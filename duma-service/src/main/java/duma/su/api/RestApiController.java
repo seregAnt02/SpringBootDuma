@@ -4,9 +4,7 @@ import duma.su.model.Parameter;
 import duma.su.services.StandartParameterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -21,9 +19,16 @@ public class RestApiController {
         this.services = services;
     }
 
+
+    @PostMapping(path = "edit")
+    public RedirectView edit(@RequestBody Parameter parameter){
+        services.update(parameter);
+        return new RedirectView("/home/index");
+    }
+
     @GetMapping(path = "/create")
-    public RedirectView Create(RedirectAttributes attributes){
-        Parameter parameter = services.createParameter("modbus #3");
+    public RedirectView create(RedirectAttributes attributes){
+        Parameter parameter = services.add("modbus #3");
         log.info("create #" + parameter.getId());
         return new RedirectView("/home/index");
     }

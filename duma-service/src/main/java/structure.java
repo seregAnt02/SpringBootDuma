@@ -22,6 +22,11 @@ public class structure {
         void getLogin(){}
     }
 
+    class UserDataController{
+        void Audio(){}
+        void Dash(){}
+        void VideoDash(){}
+    }
 
     class StandartParameterService{
         Parameter createParameter(){return null;}

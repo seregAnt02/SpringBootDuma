@@ -14,6 +14,7 @@ public class SecurityConfiguration {
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 
         return httpSecurity
+                .csrf().disable()
                 .authorizeHttpRequests(register -> register
                                 .requestMatchers("/home/index").hasAuthority("admin")
                                 .requestMatchers("/parameter/**").permitAll()
