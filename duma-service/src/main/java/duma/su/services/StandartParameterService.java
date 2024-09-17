@@ -10,6 +10,7 @@ import java.util.List;
 
 import java.util.Date;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 @Slf4j
 @Service
@@ -66,6 +67,14 @@ public class StandartParameterService {
             this.repository.save(parameter);
         }catch (NoSuchElementException ex){
             ex.getStackTrace();
+        }
+        return parameter;
+    }
+
+    public Parameter deleteParameter(long id) {
+        Parameter parameter = getParameterById(id);
+        if(parameter != null){
+            repository.delete(parameter);
         }
         return parameter;
     }

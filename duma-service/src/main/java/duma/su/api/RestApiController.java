@@ -33,7 +33,14 @@ public class RestApiController {
         return new RedirectView("/home/index");
     }
 
-
+    @DeleteMapping(path = "/{id}")
+    public RedirectView deleteParameter(@PathVariable long id){
+        Parameter parameter = this.services.deleteParameter(id);
+        if(parameter != null){
+            log.info("Удаление параметра:" + id);
+        }
+        return new RedirectView("/home/index");
+    }
 
     /*@GetMapping("/redirectWithRedirectView")
     public RedirectView redirectWithUsingRedirectView(
