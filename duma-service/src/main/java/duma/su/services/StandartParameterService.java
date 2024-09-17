@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import java.util.Date;
+import java.util.NoSuchElementException;
 
 @Slf4j
 @Service
@@ -23,26 +24,49 @@ public class StandartParameterService {
         add("modbus #2");
     }
 
+    public Parameter getParameterById(long id){
+        Parameter parameter = null;
+        if(id > 0){
+            try {
+                parameter = repository.findById(id).get();
+            }catch (NoSuchElementException ex){
+                ex.getStackTrace();
+            }
+        }
+        return parameter;
+    }
+
     public void update(Parameter parameter){
-        Parameter model = new Parameter();
-        model.setId(parameter.getId());
-        model.setDatetime(parameter.getDatetime());
-        model.setParameter(parameter.getParameter());
-        model.setCodParameter(parameter.getCodParameter());
-        model.setLastUpdate(parameter.getLastUpdate());
-        model.setMeaning(parameter.getMeaning());
-        this.repository.save(model);
+        try{
+            Parameter model = new Parameter();
+            model.setId(parameter.getId());
+            model.setDatetime(new Date());
+            model.setParameter(parameter.getParameter());
+            model.setCodParameter(parameter.getCodParameter());
+            model.setLastUpdate(parameter.getLastUpdate());
+            model.setMeaning(parameter.getMeaning());
+            this.repository.save(model);
+            log.info("Параметер обновлен!: " + model.getDatetime());
+
+        }catch (NoSuchElementException ex){
+            ex.getStackTrace();
+        }
     }
 
     public Parameter add(String nameParameter){
-        Parameter parameter = new Parameter();
-        parameter.setId(sequence++);
-        parameter.setDatetime(new Date());
-        parameter.setParameter(nameParameter);
-        parameter.setCodParameter("MQ");
-        parameter.setLastUpdate("MQ-2");
-        parameter.setMeaning(120);
-        this.repository.save(parameter);
+        Parameter parameter = null;
+        try{
+            parameter = new Parameter();
+            parameter.setId(sequence++);
+            parameter.setDatetime(new Date());
+            parameter.setParameter(nameParameter);
+            parameter.setCodParameter("MQ");
+            parameter.setLastUpdate("MQ-2");
+            parameter.setMeaning(120);
+            this.repository.save(parameter);
+        }catch (NoSuchElementException ex){
+            ex.getStackTrace();
+        }
         return parameter;
     }
 

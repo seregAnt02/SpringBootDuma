@@ -19,19 +19,21 @@ public class RestApiController {
         this.services = services;
     }
 
-
-    @PostMapping(path = "edit")
-    public RedirectView edit(@RequestBody Parameter parameter){
-        services.update(parameter);
-        return new RedirectView("/home/index");
-    }
-
     @GetMapping(path = "/create")
     public RedirectView create(RedirectAttributes attributes){
         Parameter parameter = services.add("modbus #3");
         log.info("create #" + parameter.getId());
         return new RedirectView("/home/index");
     }
+
+    @PostMapping(path = "/{id}")
+    public RedirectView edit(@PathVariable long id, @RequestBody Parameter parameter){
+        //Parameter parameter = services.getParameterById(id);
+        if(parameter != null) services.update(parameter);
+        return new RedirectView("/home/index");
+    }
+
+
 
     /*@GetMapping("/redirectWithRedirectView")
     public RedirectView redirectWithUsingRedirectView(
