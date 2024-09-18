@@ -16,8 +16,10 @@ public class SecurityConfiguration {
         return httpSecurity
                 .csrf().disable()
                 .authorizeHttpRequests(register -> register
-                                .requestMatchers("/home/index").hasAuthority("admin")
-                                .requestMatchers("/parameter/**").permitAll()
+                        .requestMatchers("/home/index").hasAuthority("admin")
+                        .requestMatchers("/parameter/**").hasAuthority("admin")
+                        .requestMatchers("/account/**").hasAuthority("admin")
+                        .requestMatchers("/account/**").hasAuthority("user")
                 )
                 .formLogin(Customizer.withDefaults())
                 .build();

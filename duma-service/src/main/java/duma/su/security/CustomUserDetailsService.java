@@ -19,9 +19,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     public CustomUserDetailsService(UserRepository repository) {
         this.repository = repository;
-        addUser("admin", "pass", "admin");
-        addUser("user", "pass", "user");
-        addUser("auth", "pass", "auth");
+        //addUser("admin", "pass", "admin");
+        //addUser("user", "pass", "user");
+        //addUser("auth", "pass", "auth");
     }
 
     @Override
@@ -36,7 +36,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         ));
     }
 
-    public void addUser(String login, String password, String role){
+    /*public void addUser(String login, String password, String role){
         User user = new User();
         user.setId(sequence++);
         user.setLogin(login);
@@ -44,6 +44,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         user.setPassword(password);
         repository.save(user);
         System.out.println("findByLogin " + repository.findByLogin(login));
-    }
+    }*/
 
 }

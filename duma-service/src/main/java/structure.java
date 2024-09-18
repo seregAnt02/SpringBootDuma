@@ -1,4 +1,3 @@
-import duma.su.model.Parameter;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
@@ -18,8 +17,7 @@ public class structure {
         Parameter delete(){return null;}
     }
     class AccountController{
-        void register(){}
-        void getLogin(){}
+        void registerUser(){}
     }
 
     class UserDataController{
