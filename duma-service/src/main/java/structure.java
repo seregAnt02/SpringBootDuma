@@ -18,6 +18,8 @@ public class structure {
     }
     class AccountController{
         void registerUser(){}
+        String registerUserPost(){return null;}
+        String userAll(){return null;}
     }
 
     class UserDataController{
