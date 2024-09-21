@@ -25,13 +25,10 @@ public class structure {
     class UserDataController{
         void Audio(){}
         void Dash(){}
-        void VideoDash(){}
+        void VideoDash(){} 
     }
 
-    class StandartParameterService{
-        Parameter createParameter(){return null;}
-        List<Parameter> getAllParameter(){return null; }
-    }
+
     class RegisterModel
     {
         @Setter

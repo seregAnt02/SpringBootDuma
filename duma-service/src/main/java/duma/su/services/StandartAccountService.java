@@ -31,11 +31,13 @@ public class StandartAccountService {
 
 
     public void registerUser(User user){
-        try{
-            this.addUser(user.getLogin(), user.getPassword(), user.getRole());
-            log.info("Добавлен пользователь: " + user.getLogin());
-        }catch (NoSuchElementException ex){
-            ex.getStackTrace();
+        if(user != null){
+            try{
+                this.addUser(user.getLogin(), user.getPassword(), user.getRole());
+                log.info("Добавлен пользователь: " + user.getLogin());
+            }catch (NoSuchElementException ex){
+                ex.getStackTrace();
+            }
         }
     }
 

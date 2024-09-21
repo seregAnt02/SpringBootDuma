@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+   <!-- <link th:href="@{/styles/css/homeControllerIndexCss.css}" rel="stylesheet" />-->
+    <!--<script type="text/javascript" th:src="@{/static/js/parameter.js}"></script>-->
+   <!-- <script>
+        function showAlert() {
+            alert("The button was clicked!");
+        }
+
+    </script>-->
+
+    <!--<script th:inline="javascript">
+        const nameJs = [[${name}]];
+    </script>-->
+
+    <script type="text/java" src="/js/parameter.js"></script>
 </head>
 <body>
+
 <h3>Model Parameter</h3>
+
 <table border="1" style="width:300px">
     <tr style="background-color:dodgerblue;text-align:center">
         <td>Id</td>
@@ -24,20 +41,10 @@
         <td style="text-align:center"><p th:text="${model.meaning}"></p></td>
     </tr>
 </table>
-   <!-- <ul>
-        <li th:each="item : ${items}"  th:text="${item}"></li>
-    </ul>-->
 
-   <!-- <table border="1" style="width:300px">
-        <tr style="background-color:dodgerblue;text-align:center">
-            <td>Id</td>
-            <td>Status</td>
-        </tr>
-        <tr th:each="item : ${items}">
-            <td style="text-align:center"><p th:text="${item.id}"></p></td>
-            <td style="text-align:center"><p th:text="${item.status}"></p></td>
-        </tr>
-    </table>-->
+
+<!--<button type="button" th:onclick="showAlert()">Show Alert</button>-->
+<button type="button" onclick="showAlert()">Show Alert</button>
 
 </body>
 </html>
