@@ -15,7 +15,7 @@ public class SecurityConfiguration {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring()
-                .requestMatchers("/static/**");
+                .requestMatchers("/resources/**", "/static/**", "/css/**", "/js/**");
     }
 
 
@@ -29,7 +29,6 @@ public class SecurityConfiguration {
                         .requestMatchers("/parameter/**").hasAuthority("admin")
                         .requestMatchers("/account/**").hasAuthority("admin")
                         .requestMatchers("/account/**").hasAuthority("user")
-                        .requestMatchers("/resources/**").permitAll()
                 )
                 .formLogin(Customizer.withDefaults())
                 .build();
