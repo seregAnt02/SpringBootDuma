@@ -42,12 +42,4 @@ public class RestApiController {
         return new RedirectView("/home/index");
     }
 
-    /*@GetMapping("/redirectWithRedirectView")
-    public RedirectView redirectWithUsingRedirectView(
-            RedirectAttributes attributes) {
-        attributes.addFlashAttribute("flashAttribute", "redirectWithRedirectView");
-        attributes.addAttribute("attribute", "redirectWithRedirectView");
-        return new RedirectView("redirectedUrl");
-    }*/
-
 }
