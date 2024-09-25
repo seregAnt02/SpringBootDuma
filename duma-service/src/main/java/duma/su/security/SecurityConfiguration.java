@@ -26,6 +26,7 @@ public class SecurityConfiguration {
                 .csrf().disable()
                 .authorizeHttpRequests(register -> register
                         .requestMatchers("/home/index").hasAuthority("admin")
+                        .requestMatchers("/home/vue").hasAuthority("admin")
                         .requestMatchers("/parameter/**").hasAuthority("admin")
                         .requestMatchers("/account/**").hasAuthority("admin")
                         .requestMatchers("/account/**").hasAuthority("user")

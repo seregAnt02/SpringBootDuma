@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div id="app">
+
+    Счётчик: {{ message }}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(row, index) in rows" v-bind:key="row.id">
+                <td>{{row.id}}<td/>
+                <td>{{row.text}}<td/>
+                <td>{{index}}<td/>
+                <td>
+                    <!--<button v-on:click="increment(row.text)">click</button>-->
+                    <button v-on:click="showAlert">click</button>
+                <td/>
+            <tr/>
+        </tbody>
+    </table>
+
+    <!--<ol v-for="row in rows">
+        <ul>
+            {{ row.id }}
+        </ul>
+
+        <ul>{{row.text}}</ul>
+    </ol>-->
+
+    <!--<button v-on:click="increment('abc')">click</button>-->
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+    /*const { createApp, ref } = Vue
+
+    createApp({
+        setup() {
+            let message = ref('Hello vue!')
+
+            function increment() {
+                alert("The button was clicked! ");
+            }
+
+            return {
+                message,
+                increment
+            }
+        }
+    }).mount('#app')*/
+
+    const Counter = {
+        data() {
+
+            //rows: []
+
+            function increment(text){
+                alert("The button was clicked! " + text);
+            }
+
+            return {
+                //counter: 3,
+                message: 'abc',
+                increment,
+                rows: [
+                    { id: '1', text: 'mq-2' },
+                    { id: '2', text: 'mq-3' }
+                ]
+            }
+        },
+        methods: {
+            showAlert() {
+                // `this` указывает на экземпляр компонента
+                alert("asd");
+            }
+        }
+    }
+
+    Vue.createApp(Counter).mount('#app')
+
+</script>
+
+    <!--<h3>Vue.js</h3>
+        <div id="app">
+            {{ message }}
+        </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                text: 'Тише, мыши, кот на крыше'
+            },
+            methods: {
+                msg: function() {
+                    alert(this.text);
+                }
+            },
+        });
+    </script>-->
+
+    <!--<script src="https://unpkg.com/vue@next"></script>-->
+
+</body>
+</html>

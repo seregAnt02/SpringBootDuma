@@ -36,4 +36,9 @@ public class HomeController {
         model.addAttribute("Models", parameter);
         return "index";
     }
+
+    @GetMapping(path = "/vue")
+    public String vue(){
+        return "vueTest";
+    }
 }
