@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
-<html xmlns:th="http://www.thymeleaf.org" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:v-on="http://www.w3.org/1999/xhtml"
+      xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,25 +44,23 @@
             <th>**</th>
         </tr>
         </thead>
-        <tr th:each="model : ${Models}">
-            <td><p th:text="${model.id}"></p></td>
-            <td><p th:text="${model.datetime}"></p></td>
-            <td><p th:text="${model.parameter}"></p></td>
-            <td><p th:text="${model.codParameter}"></p></td>
-            <td><p th:text="${model.lastUpdate}"></p></td>
-            <td><p th:text="${model.meaning}"></p></td>
+        <tr v-for="(row, index) in rows" v-bind:key="row.id">
+            <!--<td>{{index += 1}}</td>-->
+            <td>{{row.id}}</td>
+            <td>{{row.datetime}}</td>
+            <td>{{row.parameter}}</td>
+            <td>{{row.codParameter}}</td>
+            <td>{{row.lastUpdate}}</td>
+            <td>{{row.meaning}}</td>
             <td>
-                <!--<img v-bind:id="'btn_up' + row.id" v-on:click="eventUpdate(row.id, $event, index)" src="~/images/png-icons-put.png" >-->
-                <img v-on:click="increment('abc')" src="/images/png-icons-put.png" >
-                <!--<a th:href="@{/parameter/edit(id=${model.id})}">ref<a/>-->
+                <img v-bind:id="'btn_up' + row.id" v-on:click="eventUpdate(row.id, $event, index)" src="/images/png-icons-put.png" >
+                <!--<img v-on:click="increment('abc')" src="/images/png-icons-put.png" >-->
             </td>
-            <td><p th:text="bbb"></p></td>
+            <td>
+                <button type="button" v-on:click="showAlert(row.parameter)">Show Alert</button>
+            </td>
         </tr>
     </table>
-
-    <!--<div id="contents"></div>-->
-
-    <!--<button type="button" onclick="this.createApp.eventUpdate()">Show Alert</button>-->
 
 </div>
 

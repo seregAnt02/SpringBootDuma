@@ -5,17 +5,28 @@ createApp({
     setup() {
         let message = ref('Hello vue!')
 
-        function increment(text) {
-            // .value is needed in JavaScript
-            //message = 'abc'
-            showAlert(text)
-        }
-
         return {
-            message,
-            increment
+            message
+        }
+    },
+    data() {
+        return{
+            rows: [
+                { id: '1', datetime: '01/01/01', parameter:'MQ-2', codParameter:'asd', lastUpdate:'***', meaning:'1'},
+                { id: '2', datetime: '02/01/01', parameter:'MQ-3', codParameter:'abc', lastUpdate:'*', meaning:'2'}
+            ]
+        }
+    },
+    methods: {
+        showAlert: function(text) {
+            alert(text)
+        },
+        eventUpdate: function (id, event, index) {
+            // .value is needed in JavaScript
+            alert(id);
         }
     }
+
 }).mount('#app')
 
 /*let app = new Vue({
@@ -41,6 +52,6 @@ createApp({
 
 //const body = document.getElementById("element");
 
-function showAlert(text) {
+/*function showAlert(text) {
     alert("The button was clicked! " + text);
-}
+}*/

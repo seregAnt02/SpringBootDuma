@@ -32,8 +32,8 @@ public class HomeController {
 
     @GetMapping(path = "/index")
     public String index(Model model){
-        List<Parameter> parameter = this.services.getAllParameter();
-        model.addAttribute("Models", parameter);
+        /*List<Parameter> parameter = this.services.getAllParameter();
+        model.addAttribute("Models", parameter);*/
         return "index";
     }
 
