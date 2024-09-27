@@ -1,49 +1,6 @@
 
-/*const { createApp, ref } = Vue
-
-createApp({
-    setup() {
-        let message = ref('Hello vue!')
-
-        return {
-            message
-        }
-    },
-    data() {
-        return{
-            rows: [
-                { id: '1', datetime: '01/01/01', parameter:'MQ-2', codParameter:'asd', lastUpdate:'***', meaning:'1'},
-                { id: '2', datetime: '02/01/01', parameter:'MQ-3', codParameter:'abc', lastUpdate:'*', meaning:'2'}
-            ],
-            login: 'abc'
-        }
-    },
-    methods: {
-        showAlert: function(text) {
-            alert(text)
-        },
-        eventUpdate: function (id, event, index) {
-            // .value is needed in JavaScript
-            alert(id);
-        },
-        eventDelete: function (){
-            //const formLoading = RowsAddUpdateTable();
-            //addValue();
-
-            //console.log(app2.message);
-
-            //putUpData();
-        }
-    }
-
-}).mount('#app')*/
-
-function addValue(){
-    //createApp.data().rows.push('asd');
-}
-
-let app2 = new Vue({
-    el: '#app2',
+let app = new Vue({
+    el: '#app',
     data: {
         message: 'Тише, мыши, кот на крыше',
         rows: [
@@ -65,14 +22,21 @@ let app2 = new Vue({
         },
         eventDelete: function (){
             //const formLoading = RowsAddUpdateTable();
-            //addValue();
+            addValue();
 
-            //console.log(app2.message);
+            console.log(this.message);
 
             //putUpData();
         }
     },
 });
+
+
+
+function addValue(){
+    app.rows.push({ id: '3', datetime: '03/03/03', parameter:'MQ-3', codParameter:'asd', lastUpdate:'***', meaning:'3'})
+}
+
 
 let formLoading = document.getElementById('formLoading');
 
