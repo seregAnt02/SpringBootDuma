@@ -25,6 +25,9 @@ public class StandartParameterService {
         add("modbus #2");
     }
 
+    public List<Parameter> getAll(){
+        return this.repository.findAll();
+    }
     public Parameter getParameterById(long id){
         Parameter parameter = null;
         if(id > 0){

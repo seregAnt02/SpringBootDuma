@@ -1,5 +1,5 @@
 
-const { createApp, ref } = Vue
+/*const { createApp, ref } = Vue
 
 createApp({
     setup() {
@@ -14,7 +14,8 @@ createApp({
             rows: [
                 { id: '1', datetime: '01/01/01', parameter:'MQ-2', codParameter:'asd', lastUpdate:'***', meaning:'1'},
                 { id: '2', datetime: '02/01/01', parameter:'MQ-3', codParameter:'abc', lastUpdate:'*', meaning:'2'}
-            ]
+            ],
+            login: 'abc'
         }
     },
     methods: {
@@ -24,34 +25,118 @@ createApp({
         eventUpdate: function (id, event, index) {
             // .value is needed in JavaScript
             alert(id);
+        },
+        eventDelete: function (){
+            //const formLoading = RowsAddUpdateTable();
+            //addValue();
+
+            //console.log(app2.message);
+
+            //putUpData();
         }
     }
 
-}).mount('#app')
+}).mount('#app')*/
 
-/*let app = new Vue({
-    el: '#app',
+function addValue(){
+    //createApp.data().rows.push('asd');
+}
+
+let app2 = new Vue({
+    el: '#app2',
     data: {
-        message: 'Тише, мыши, кот на крыше'
+        message: 'Тише, мыши, кот на крыше',
+        rows: [
+            { id: '1', datetime: '01/01/01', parameter:'MQ-2', codParameter:'asd', lastUpdate:'***', meaning:'1'},
+            { id: '2', datetime: '02/01/01', parameter:'MQ-3', codParameter:'abc', lastUpdate:'*', meaning:'2'}
+        ],
+        login: 'abc'
     },
     methods: {
         changeText: function() {
             this.message = 'А котята ещё выше';
-        }
-    },
-});*/
-
-/*let app = new Vue({
-    el: '#contents',
-    methods: {
+        },
         showAlert: function(text) {
             alert(text)
+        },
+        eventUpdate: function (id, event, index) {
+            // .value is needed in JavaScript
+            alert(id);
+        },
+        eventDelete: function (){
+            //const formLoading = RowsAddUpdateTable();
+            //addValue();
+
+            //console.log(app2.message);
+
+            //putUpData();
         }
+    },
+});
+
+let formLoading = document.getElementById('formLoading');
+
+
+async function putUpData() {
+
+    let hostname = window.location.hostname;
+
+    let url = hostname == "localhost" ? "/parameter" : "/spring-boot-duma/parameter";
+
+    let response = await fetch(url, {
+
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json;charset=utf-8'
+            //"Content-Type": "application/x-www-form-urlencoded"
+        }
+
+    });
+
+    //console.dir(id);
+
+    if (response.ok === true) {
+
+        const result = await response.json();
+
+        console.log(result);
+        //FormLoading(result, index);
+
     }
-});*/
+}
 
-//const body = document.getElementById("element");
 
-/*function showAlert(text) {
-    alert("The button was clicked! " + text);
-}*/
+
+    async function RowsAddUpdateTable() {
+
+        const hostname = window.location.hostname;
+        const url = hostname == "localhost" ? "/home/index" : "/spring-boot-duma/Home/index";
+
+        let response = await fetch(url, {
+
+            method: 'GET',
+            headers: {
+                //'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'text/html;charset=utf-8'
+                //'Content-Type':'multipart/form-data'
+                //"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+            }
+
+        });
+
+        if (response.ok === true) {
+
+            formLoading.setAttribute("zIndex", "1");
+
+            formLoading.innerHTML = await response.text();
+
+            console.dir(formLoading);
+
+        }
+
+        return formLoading;
+
+    }
+
+

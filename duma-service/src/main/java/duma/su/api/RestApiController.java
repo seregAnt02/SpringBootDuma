@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping(path = "/parameter")
@@ -17,6 +19,11 @@ public class RestApiController {
 
     public RestApiController(StandartParameterService services) {
         this.services = services;
+    }
+
+    @GetMapping
+    public List<Parameter> getAllParameters(){
+        return services.getAll();
     }
 
     @GetMapping(path = "/create")
