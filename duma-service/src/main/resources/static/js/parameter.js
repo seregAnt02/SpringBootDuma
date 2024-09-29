@@ -4,8 +4,8 @@ let app = new Vue({
     data: {
         message: 'Тише, мыши, кот на крыше',
         rows: [
-            { id: '1', datetime: '01/01/01', parameter:'MQ-2', codParameter:'asd', lastUpdate:'***', meaning:'1'},
-            { id: '2', datetime: '02/01/01', parameter:'MQ-3', codParameter:'abc', lastUpdate:'*', meaning:'2'}
+            /*{ id: '1', datetime: '01/01/01', parameter:'MQ-2', codParameter:'asd', lastUpdate:'***', meaning:'1'},
+            { id: '2', datetime: '02/01/01', parameter:'MQ-3', codParameter:'abc', lastUpdate:'*', meaning:'2'}*/
         ],
         login: 'abc'
     },
@@ -20,28 +20,31 @@ let app = new Vue({
             // .value is needed in JavaScript
             alert(id);
         },
-        eventDelete: function (){
-            //const formLoading = RowsAddUpdateTable();
-            addValue();
+        addParameterToArreys: function (){
 
-            console.log(this.message);
-
-            //putUpData();
+            getAllParameter().then(r => {
+                console.log(this.message);
+            });
         }
     },
 });
 
+app.addParameterToArreys();
 
+async function addArreysParameter(result){
 
-function addValue(){
-    app.rows.push({ id: '3', datetime: '03/03/03', parameter:'MQ-3', codParameter:'asd', lastUpdate:'***', meaning:'3'})
+    for (let i = 0; i < result.length; i++){
+        app.rows.push(result[i]);
+    }
+
+    //app.rows.push({ id: '3', datetime: '03/03/03', parameter:'MQ-3', codParameter:'asd', lastUpdate:'***', meaning:'3'})
 }
 
 
-let formLoading = document.getElementById('formLoading');
+//let formLoading = document.getElementById('formLoading');
 
 
-async function putUpData() {
+async function getAllParameter() {
 
     let hostname = window.location.hostname;
 
@@ -64,43 +67,9 @@ async function putUpData() {
 
         const result = await response.json();
 
-        console.log(result);
-        //FormLoading(result, index);
-
+        await addArreysParameter(result);
+        //console.log(result);
     }
 }
-
-
-
-    async function RowsAddUpdateTable() {
-
-        const hostname = window.location.hostname;
-        const url = hostname == "localhost" ? "/home/index" : "/spring-boot-duma/Home/index";
-
-        let response = await fetch(url, {
-
-            method: 'GET',
-            headers: {
-                //'Content-Type': 'application/json;charset=utf-8'
-                'Content-Type': 'text/html;charset=utf-8'
-                //'Content-Type':'multipart/form-data'
-                //"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-            }
-
-        });
-
-        if (response.ok === true) {
-
-            formLoading.setAttribute("zIndex", "1");
-
-            formLoading.innerHTML = await response.text();
-
-            console.dir(formLoading);
-
-        }
-
-        return formLoading;
-
-    }
 
 
