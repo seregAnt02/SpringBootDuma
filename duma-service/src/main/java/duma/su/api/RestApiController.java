@@ -21,6 +21,12 @@ public class RestApiController {
         this.services = services;
     }
 
+    @GetMapping(path = "/{id}")
+    public Parameter ParameterId(@PathVariable long id){
+        return services.getParameterById(id);
+    }
+
+
     @GetMapping
     public List<Parameter> getAllParameters(){
         return services.getAll();

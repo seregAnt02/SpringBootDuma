@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 @Slf4j
 @Controller
@@ -35,6 +35,19 @@ public class HomeController {
         /*List<Parameter> parameter = this.services.getAllParameter();
         model.addAttribute("Models", parameter);*/
         return "index";
+    }
+
+
+    @PostMapping()
+    public String addFormPostRequest(@RequestBody Parameter parameter){
+        log.info(parameter.toString());
+        return "index";
+    }
+
+
+    @GetMapping(path = "/updateParameter")
+    public String editParameter(){
+        return "parameterForm";
     }
 
     @GetMapping(path = "/vue")
