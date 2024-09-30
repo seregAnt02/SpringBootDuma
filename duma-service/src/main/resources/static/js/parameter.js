@@ -18,9 +18,9 @@ let app = new Vue({
         },
         eventUpdate: function (id, event, index) {
 
-            let form = getParameterForm()
-
-            addToForm()
+            getParameterForm().then(r => {
+                addToForm()
+            })
         },
         addParameterToArreys: function (){
 
@@ -50,8 +50,6 @@ function addToForm(){
     const parameterId = getParameterId(1)
 
     const form = formLoading.getElementsByClassName('add-form-class');
-
-    //console.log(formLoading);
 
     parameterId.then(result => {
 
@@ -113,13 +111,10 @@ async function getParameterForm(){
 
     if (response.ok === true) {
 
-        //return response.text();
         formLoading.setAttribute("zIndex", "1");
 
         formLoading.innerHTML = await response.text();
     }
-
-    return formLoading;
 }
 
 
