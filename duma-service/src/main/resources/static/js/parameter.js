@@ -19,7 +19,7 @@ let app = new Vue({
         eventUpdate: function (id, event, index) {
 
             getParameterForm().then(r => {
-                addToForm()
+                addToForm(id).then(r => {});
             })
         },
         addParameterToArreys: function (){
@@ -31,39 +31,101 @@ let app = new Vue({
     },
 });
 
+//----------------------------------
+
 app.addParameterToArreys();
 
-async function addArreysParameter(result){
+//----------------------------------
+let formLoading = document.getElementById('formLoading');
+//----------------------------------
 
-    for (let i = 0; i < result.length; i++){
-        app.rows.push(result[i]);
+
+async function editParameter(json){
+    let hostname = window.location.hostname;
+
+    let url = hostname == "localhost" ? "/parameter/edit" : "/#/parameter/edit";
+
+    let response = await fetch( url, {
+
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type':'application/json;charset=utf-8'
+            //"Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: json
+
+    });
+    if (response.ok === true) {
+
+        const result = await response.text();
+
+        window.location.href = "/home/index";
     }
-
-    //app.rows.push({ id: '3', datetime: '03/03/03', parameter:'MQ-3', codParameter:'asd', lastUpdate:'***', meaning:'3'})
 }
 
+async function addToForm(id){
 
-let formLoading = document.getElementById('formLoading');
+    const parameterId = getParameterId(id)
 
-function addToForm(){
+    await parameterId.then(result => {
 
-    const parameterId = getParameterId(1)
+        const form = document.getElementById('id-form-parameter');
 
-    const form = formLoading.getElementsByClassName('add-form-class');
+        //const loginHeader = form.getElementsByClassName('login-header');
 
-    parameterId.then(result => {
+        //loginHeader[0].setAttribute('value', 'Обновить строку?  № ' + result.id);
 
-        for (let i = 0; i < form[0].length; i++){
-            let id = form[0][i].getAttribute('id');
-            if(id == 'id') form[0][i].setAttribute('value', result.id)
-            if(id == 'datetime') form[0][i].setAttribute('value', result.datetime)
-            if(id == 'parameter') form[0][i].setAttribute('value', result.parameter)
-            if(id == 'codParameter') form[0][i].setAttribute('value', result.codParameter)
-            if(id == 'lastUpdate') form[0][i].setAttribute('value', result.lastUpdate)
-            if(id == 'meaning') form[0][i].setAttribute('value', result.meaning)
+        for (let i = 0; i < form.length; i++){
+            let nameId = form[i].getAttribute('id');
+            if(nameId == 'id') form[i].setAttribute('value', result.id)
+            if(nameId == 'datetime') form[i].setAttribute('value', result.datetime)
+            if(nameId == 'parameter') form[i].setAttribute('value', result.parameter)
+            if(nameId == 'codParameter') form[i].setAttribute('value', result.codParameter)
+            if(nameId == 'lastUpdate') form[i].setAttribute('value', result.lastUpdate)
+            if(nameId == 'meaning') form[i].setAttribute('value', result.meaning)
 
         }
-        //console.log(formLoading);
+
+        //console.log(loginHeader);
+
+        const btnCancel = document.getElementById('btn_cancel');
+
+        const btnOk = document.getElementById('btn_ok');
+
+        btnCancel.onclick = async function(event){
+
+            form.classList.remove('add-form-css')
+            form.classList.add('form-cleaning');
+        }
+
+        btnOk.onclick = async function(event){
+
+            let js = {
+                id: '',
+                datetime: '',
+                parameter: '',
+                codParameter: '',
+                lastUpdate: '',
+                meaning: ''
+            };
+
+            for (let x = 0; x < form.length; x++){
+                let nameId = form[x].getAttribute('id');
+                if(nameId == 'id') js.id = form[x].value;
+                if(nameId == 'datetime') js.datetime = form[x].value;
+                if(nameId == 'parameter') js.parameter = form[x].value;
+                if(nameId == 'codParameter') js.codParameter = form[x].value;
+                if(nameId == 'lastUpdate') js.lastUpdate = form[x].value;
+                if(nameId == 'meaning') js.meaning = form[x].value;
+
+            }
+
+            let jsParameter = JSON.stringify(js);
+
+            await editParameter(jsParameter);
+        }
+
     });
 }
 
@@ -95,7 +157,7 @@ async function getParameterId(id){
 async function getParameterForm(){
 
     let hostname = window.location.hostname;
-    let url = hostname == "localhost" ? "/home/updateParameter" : "/#/home/updateParameter";
+    let url = hostname == "localhost" ? "/home/formParameter" : "/#/home/formParameter";
 
     let response = await fetch( url, {
 
@@ -117,7 +179,6 @@ async function getParameterForm(){
     }
 }
 
-
 async function getAllParameter() {
 
     let hostname = window.location.hostname;
@@ -135,15 +196,21 @@ async function getAllParameter() {
 
     });
 
-    //console.dir(id);
-
     if (response.ok === true) {
 
         const result = await response.json();
 
         await addArreysParameter(result);
-        //console.log(result);
     }
+}
+
+async function addArreysParameter(result){
+
+    for (let i = 0; i < result.length; i++){
+        app.rows.push(result[i]);
+    }
+
+    //app.rows.push({ id: '3', datetime: '03/03/03', parameter:'MQ-3', codParameter:'asd', lastUpdate:'***', meaning:'3'})
 }
 
 

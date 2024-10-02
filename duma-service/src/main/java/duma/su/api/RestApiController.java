@@ -39,8 +39,8 @@ public class RestApiController {
         return new RedirectView("/home/index");
     }
 
-    @PostMapping(path = "/{id}")
-    public RedirectView edit(@PathVariable long id, @RequestBody Parameter parameter){
+    @PostMapping(path = "/edit")
+    public RedirectView edit(@RequestBody Parameter parameter){
         //Parameter parameter = services.getParameterById(id);
         if(parameter != null) services.update(parameter);
         return new RedirectView("/home/index");

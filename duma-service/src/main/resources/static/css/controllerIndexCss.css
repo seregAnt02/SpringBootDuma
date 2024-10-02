@@ -1,3 +1,15 @@
+/*
+
+.login-header{
+    visibility: visible;
+}
+*/
+
+
+.form-cleaning{
+    display: none;
+}
+
 .headers-in-center{
     margin-top: 100px;
     text-align: center;

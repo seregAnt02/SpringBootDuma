@@ -6,10 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Slf4j
 @Controller
@@ -37,16 +35,8 @@ public class HomeController {
         return "index";
     }
 
-
-    @PostMapping()
-    public String addFormPostRequest(@RequestBody Parameter parameter){
-        log.info(parameter.toString());
-        return "index";
-    }
-
-
-    @GetMapping(path = "/updateParameter")
-    public String editParameter(){
+    @GetMapping(path = "/formParameter")
+    public String formParameter(){
         return "parameterForm";
     }
 
