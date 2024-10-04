@@ -19,8 +19,15 @@ let app = new Vue({
         changeText: function() {
             this.message = 'А котята ещё выше';
         },
-        showAlert: function(text) {
-            alert(text)
+        deleteRowParameterAtTable: function(id, event) {
+
+            iconEventClickDelete(event);
+
+            deleteParameterToTable(id).then(result => {
+                //console.log(id);
+                //window.location.reload();
+                window.location.href = "/home/index";
+            });
         },
         eventUpdate: function (id, event, index) {
 
@@ -46,6 +53,30 @@ app.addParameterToArreys();
 //----------------------------------
 let formLoading = document.getElementById('formLoading');
 //----------------------------------
+
+async function deleteParameterToTable(id){
+
+    let hostname = window.location.hostname;
+
+    let url = hostname == "localhost" ? "/parameter/" + id : "/#/parameter/" + id;
+
+    let response = await fetch( url, {
+
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type':'application/json;charset=utf-8'
+            //"Content-Type": "application/x-www-form-urlencoded"
+        }
+    });
+    if (response.ok === true) {
+
+        const result = await response.text();
+
+        return result;
+    }
+}
+
 
 function addParameterToTable() {
 
@@ -266,6 +297,20 @@ async function addArreysParameter(result){
     }
 
     //app.rows.push({ id: '3', datetime: '03/03/03', parameter:'MQ-3', codParameter:'asd', lastUpdate:'***', meaning:'3'})
+}
+
+function iconEventClickDelete(event){
+
+    let hostname = window.location.hostname;
+    let urlDark = hostname == "localhost" ? "/images/png-icons-delete-dark.png" : "/#/images/png-icons-delete-dark.png";
+    let url = hostname == "localhost" ? "/images/png-icons-delete.png" : "/#/png-icons-delete.png";
+
+    event.target.setAttribute("src", urlDark);
+    setTimeout(() => {
+
+        event.target.setAttribute("src", url);
+
+    }, 75);
 }
 
 function iconEventClickUpdata(event){
