@@ -10,6 +10,12 @@ let app = new Vue({
         login: 'abc'
     },
     methods: {
+        addRowTable(){
+
+            iconEventClickAdd();
+
+            addParameterToTable()
+        },
         changeText: function() {
             this.message = 'А котята ещё выше';
         },
@@ -17,6 +23,8 @@ let app = new Vue({
             alert(text)
         },
         eventUpdate: function (id, event, index) {
+
+            iconEventClickUpdata(event);
 
             getParameterForm().then(r => {
                 addToForm(id).then(r => {});
@@ -39,6 +47,53 @@ app.addParameterToArreys();
 let formLoading = document.getElementById('formLoading');
 //----------------------------------
 
+function addParameterToTable() {
+
+    getParameterForm().then(result => {
+
+        const form = document.getElementById('id-form-parameter');
+
+        const btnCancel = document.getElementById('btn_cancel');
+
+        const btnOk = document.getElementById('btn_ok');
+
+        btnCancel.onclick = async function (event) {
+
+            form.classList.remove('add-form-css')
+            form.classList.add('form-cleaning');
+        }
+
+        btnOk.onclick = async function (event) {
+
+            await createParameter();
+
+            console.log(form);
+        }
+    });
+}
+
+async function createParameter(){
+
+    let hostname = window.location.hostname;
+
+    let url = hostname == "localhost" ? "/parameter/create" : "/#/parameter/create";
+
+    let response = await fetch( url, {
+
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type':'application/json;charset=utf-8'
+            //"Content-Type": "application/x-www-form-urlencoded"
+        }
+    });
+    if (response.ok === true) {
+
+        const result = await response.text();
+
+        window.location.href = "/home/index";
+    }
+}
 
 async function editParameter(json){
     let hostname = window.location.hostname;
@@ -72,9 +127,9 @@ async function addToForm(id){
 
         const form = document.getElementById('id-form-parameter');
 
-        //const loginHeader = form.getElementsByClassName('login-header');
+        const loginHeader = form.getElementsByClassName('login-header');
 
-        //loginHeader[0].setAttribute('value', 'Обновить строку?  № ' + result.id);
+        loginHeader[0].textContent = loginHeader[0].textContent + ' ' + result.id
 
         for (let i = 0; i < form.length; i++){
             let nameId = form[i].getAttribute('id');
@@ -211,6 +266,39 @@ async function addArreysParameter(result){
     }
 
     //app.rows.push({ id: '3', datetime: '03/03/03', parameter:'MQ-3', codParameter:'asd', lastUpdate:'***', meaning:'3'})
+}
+
+function iconEventClickUpdata(event){
+
+    let hostname = window.location.hostname;
+    let url_icons_dark = hostname == "localhost" ? "/images/png-icons-put-dark.png" : "/#/images/png-icons-put-dark.png";
+    let url_icons = hostname == "localhost" ? "/images/png-icons-put.png" : "/#/images/png-icons-put.png";
+
+    event.target.setAttribute("src", url_icons_dark);
+    setTimeout(() => {
+
+        event.target.setAttribute("src", url_icons);
+
+    }, 75);
+
+}
+
+function iconEventClickAdd(){
+
+    let imgAddRow = document.getElementsByClassName('img_add_row')[0];
+
+    let hostname = window.location.hostname;
+
+    let url_plus_dark = hostname === "localhost" ? "/images/png-icons-plus-dark.png" : "/#/images/png-icons-plus-dark.png";
+
+    imgAddRow.setAttribute("src", url_plus_dark);
+
+    setTimeout(() => {
+
+        let url_plus = hostname === "localhost" ? "/images/png-icons-plus.png" : "/#/images/png-icons-plus.png";
+        imgAddRow.setAttribute("src", url_plus);
+
+    }, 75);
 }
 
 

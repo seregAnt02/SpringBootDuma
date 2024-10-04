@@ -1,9 +1,8 @@
-/*
 
-.login-header{
-    visibility: visible;
+.img_add_row{
+    margin-left: 18%;
+    margin-top: 25px;
 }
-*/
 
 
 .form-cleaning{
@@ -11,7 +10,7 @@
 }
 
 .headers-in-center{
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     text-align: center;
 }
 
@@ -29,7 +28,7 @@ th{
     /*position: center;*/
     /*display: block;*/
     text-align: center;
-    margin-top: 45px;
+    /*margin-top: 25px;*/
     margin-left: 18%;
     width: 65%;
     /*border-style: solid;*/
