@@ -1,7 +1,7 @@
-package duma.su.api;
+package duma.api;
 
-import duma.su.model.Parameter;
-import duma.su.services.StandartParameterService;
+import duma.model.Parameter;
+import duma.services.StandartParameterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +20,12 @@ public class RestApiController {
     public RestApiController(StandartParameterService services) {
         this.services = services;
     }
+
+    @GetMapping(path = "/void")
+    public void testApi(){
+
+    }
+
 
     @GetMapping(path = "/{id}")
     public Parameter ParameterId(@PathVariable long id){

@@ -1,7 +1,6 @@
-package duma.su.repository;
+package duma.repository;
 
-import duma.su.model.Dum;
-import duma.su.model.Parameter;
+import duma.model.Parameter;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

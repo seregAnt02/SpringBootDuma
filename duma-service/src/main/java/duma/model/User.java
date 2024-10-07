@@ -1,4 +1,4 @@
-package duma.su.model;
+package duma.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -10,7 +10,7 @@ let app = new Vue({
         login: 'abc'
     },
     methods: {
-        addRowTable(){
+        addRowTable: function(){
 
             iconEventClickAdd();
 
@@ -24,8 +24,7 @@ let app = new Vue({
             iconEventClickDelete(event);
 
             deleteParameterToTable(id).then(result => {
-                //console.log(id);
-                //window.location.reload();
+
                 window.location.href = "/home/index";
             });
         },
@@ -77,7 +76,6 @@ async function deleteParameterToTable(id){
     }
 }
 
-
 function addParameterToTable() {
 
     getParameterForm().then(result => {
@@ -88,6 +86,10 @@ function addParameterToTable() {
 
         const btnOk = document.getElementById('btn_ok');
 
+        const loginHeader = form.getElementsByClassName('login-header');
+
+        loginHeader[0].textContent = "Добавить строку?"
+
         btnCancel.onclick = async function (event) {
 
             form.classList.remove('add-form-css')
@@ -97,8 +99,6 @@ function addParameterToTable() {
         btnOk.onclick = async function (event) {
 
             await createParameter();
-
-            console.log(form);
         }
     });
 }
@@ -261,7 +261,11 @@ async function getParameterForm(){
 
         formLoading.setAttribute("zIndex", "1");
 
-        formLoading.innerHTML = await response.text();
+        let result = await response.text();
+
+        formLoading.innerHTML = result;
+
+        return result;
     }
 }
 

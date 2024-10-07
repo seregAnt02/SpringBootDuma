@@ -1,4 +1,4 @@
-package duma.su.model;
+package duma.model;
 
 import lombok.Getter;
 import lombok.Setter;

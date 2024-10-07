@@ -1,7 +1,7 @@
-package duma.su.security;
+package duma.security;
 
-import duma.su.model.Role;
-import duma.su.repository.RoleRepository;
+import duma.model.Role;
+import duma.repository.RoleRepository;
 import org.springframework.stereotype.Component;
 
 @Component

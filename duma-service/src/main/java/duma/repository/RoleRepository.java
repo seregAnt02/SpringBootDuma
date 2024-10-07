@@ -1,6 +1,6 @@
-package duma.su.repository;
+package duma.repository;
 
-import duma.su.model.Role;
+import duma.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {

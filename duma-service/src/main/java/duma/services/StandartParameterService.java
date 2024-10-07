@@ -1,7 +1,7 @@
-package duma.su.services;
+package duma.services;
 
-import duma.su.model.Parameter;
-import duma.su.repository.ParameterRepository;
+import duma.model.Parameter;
+import duma.repository.ParameterRepository;
 import lombok.extern.slf4j.Slf4j;
 //import org.hibernate.mapping.List;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,6 @@ import java.util.List;
 
 import java.util.Date;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 
 @Slf4j
 @Service

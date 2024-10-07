@@ -1,7 +1,7 @@
-package duma.su.api;
+package duma.api;
 
-import duma.su.model.User;
-import duma.su.services.StandartAccountService;
+import duma.model.User;
+import duma.services.StandartAccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

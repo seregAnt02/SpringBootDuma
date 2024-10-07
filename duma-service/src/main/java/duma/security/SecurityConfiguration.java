@@ -1,4 +1,4 @@
-package duma.su.security;
+package duma.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +28,8 @@ public class SecurityConfiguration {
                         .requestMatchers("/home/index").hasAuthority("admin")
                         .requestMatchers("/home/vue").hasAuthority("admin")
                         .requestMatchers("/home/**").permitAll()
-                        .requestMatchers("/parameter/**").hasAuthority("admin")
+                        //.requestMatchers("/parameter/**").hasAuthority("admin")
+                        .requestMatchers("/parameter/**").permitAll()
                         .requestMatchers("/account/**").hasAuthority("admin")
                         .requestMatchers("/account/**").hasAuthority("user")
                 )

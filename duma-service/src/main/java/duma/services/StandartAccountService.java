@@ -1,7 +1,7 @@
-package duma.su.services;
+package duma.services;
 
-import duma.su.model.User;
-import duma.su.repository.UserRepository;
+import duma.model.User;
+import duma.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

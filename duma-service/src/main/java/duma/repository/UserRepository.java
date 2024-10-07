@@ -1,6 +1,6 @@
-package duma.su.repository;
+package duma.repository;
 
-import duma.su.model.User;
+import duma.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

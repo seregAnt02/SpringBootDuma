@@ -1,12 +1,11 @@
-package duma.su.security;
+package duma.security;
 
-import duma.su.model.User;
-import duma.su.repository.UserRepository;
+import duma.model.User;
+import duma.repository.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

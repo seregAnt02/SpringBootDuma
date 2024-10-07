@@ -1,4 +1,4 @@
-package duma.su.security;
+package duma.security;
 
 import lombok.val;
 import org.springframework.security.core.userdetails.User;

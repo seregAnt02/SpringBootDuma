@@ -1,4 +1,4 @@
-package duma.su.api;
+package duma.api;
 
 
 import lombok.extern.slf4j.Slf4j;
