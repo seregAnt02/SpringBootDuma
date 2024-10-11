@@ -31,7 +31,7 @@ public class StandartParameterService {
         Parameter parameter = null;
         if(id > 0){
             try {
-                parameter = repository.findById(id).get();
+                parameter = this.repository.findById(id).get();
             }catch (NoSuchElementException ex){
                 ex.getStackTrace();
             }
