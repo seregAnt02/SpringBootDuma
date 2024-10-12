@@ -39,10 +39,7 @@ public class ParameterControllerTest {
     @WithUserDetails("admin")
     public void testParameterId() throws Exception{
 
-        Parameter parameter = service.getParameterById(1L);
-
-        Mockito.when(parameter.id).thenReturn(getParameterId(1l).id);
-
+        Mockito.when(service.getParameterById(1L).id).thenReturn(getParameterId(1l).id);
     }
 
     private Parameter getParameterId(long id){
