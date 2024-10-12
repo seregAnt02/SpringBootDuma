@@ -20,7 +20,6 @@ import org.springframework.test.web.servlet.client.MockMvcWebTestClient;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 import java.util.List;
@@ -29,7 +28,6 @@ import java.util.Optional;
 
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
@@ -62,7 +60,7 @@ public class RestApiControllerTest {
     public void setup() {
         this.webTestClient = MockMvcWebTestClient.bindToApplicationContext(context)
                 .apply(springSecurity())
-                .defaultRequest(get("/").with(csrf()))
+                //.defaultRequest(get("/").with(csrf()))
                 .configureClient()
                 //.filter(basicAuthentication("admin", "pass"))
                 .build();
@@ -70,7 +68,7 @@ public class RestApiControllerTest {
 
 
     @Test
-    public void testParameterId() throws Exception{
+    public void ParameterId() throws Exception{
 
         Optional<Parameter> parameter = repository.findById(1L);
 
@@ -80,7 +78,7 @@ public class RestApiControllerTest {
 
     @Test
     @WithUserDetails("admin")
-    public void testParameterAll(){
+    public void ParameterAll(){
 
         /*this.webTestClient
                 .get()
@@ -92,13 +90,12 @@ public class RestApiControllerTest {
 
         List<Parameter> responseBody = webTestClient.get()
                 .uri("/parameter")
-                //.headers(http -> http.setBasicAuth("admin", "pass"))
                 .accept(MediaType.APPLICATION_JSON)
-                .exchange() // выполнение без тела запроса
-                .expectStatus().isOk() // Утверждения о статусе ответа -> Подтвердите, что код статуса ответа — HttpStatus.OK (200).
+                .exchange()
+                .expectStatus().isOk()
                 .expectBody(new ParameterizedTypeReference<List<Parameter>>(){})
-                .returnResult() // Выйти из связанного API и вернуть ExchangeResult с декодированным содержимым ответа.
-                .getResponseBody(); // Верните сущность, извлеченную из тела ответа.
+                .returnResult()
+                .getResponseBody();
 
         Assertions.assertEquals(expected.size(), responseBody.size());
 

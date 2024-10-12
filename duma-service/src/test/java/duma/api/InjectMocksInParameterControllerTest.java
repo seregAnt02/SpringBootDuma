@@ -56,14 +56,14 @@ public class InjectMocksInParameterControllerTest {
 
     @Test
     @WithUserDetails("admin")
-    public void testParameterId() throws Exception{
+    public void MockitoParameterId() throws Exception{
 
         Mockito.when(service.getParameterById(1L).id).thenReturn(getParameterId(1l).id);
     }
 
     @Test
     @WithUserDetails("admin")
-    public void jsonRequestWithStatus_200_ok() throws Exception {
+    public void jsonRequestOnCountValues() throws Exception {
         mvc.perform(get("/parameter").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(2));
