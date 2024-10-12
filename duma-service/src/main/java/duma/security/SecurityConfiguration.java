@@ -27,7 +27,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(register -> register
                         .requestMatchers("/home/index").hasAuthority("admin")
                         .requestMatchers("/home/vue").hasAuthority("admin")
-                        .requestMatchers("/home/**").permitAll()
+                        //.requestMatchers("/home/**").permitAll()
                         .requestMatchers("/parameter/**").hasAuthority("admin")
                         //.requestMatchers("/parameter/**").permitAll()
                         .requestMatchers("/account/**").hasAuthority("admin")
