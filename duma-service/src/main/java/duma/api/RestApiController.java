@@ -21,11 +21,6 @@ public class RestApiController {
         this.services = services;
     }
 
-    @GetMapping(path = "/void")
-    public void testApi(){
-
-    }
-
 
     @GetMapping(path = "/{id}")
     public Parameter ParameterId(@PathVariable long id){

@@ -31,7 +31,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
-//@WebMvcTest
 public class RestApiControllerTest {
 
     private WebApplicationContext context;
@@ -78,7 +77,7 @@ public class RestApiControllerTest {
 
     @Test
     @WithUserDetails("admin")
-    public void ParameterAll(){
+    public void ParameterAll() throws Exception{
 
         /*this.webTestClient
                 .get()
