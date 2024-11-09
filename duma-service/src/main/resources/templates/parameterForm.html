@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .error {
+            border-color: red;
+        }
+
+        .label-error-show{
+            color: red;
+            padding: 10px 15px 10px 15px;
+        }
+
+        <!-- .login-header{
+                 margin: 15px 10px 10px 10px;
+                 color: white;
+             } -->
+
+        .add-form-css{
+            /* margin-top: -60%;
+            margin-left: 25%; */
+            border: solid black;
+            /* width:auto; */
+            background-color: gray;
+            position:absolute;
+            border-radius: 10px;
+            display: block;
+            text-align: center;
+            z-index: 1;
+            box-shadow: 5px 5px 10px 3px rgba(51, 47, 47, 0.5);
+            top: 10px; left: 45%;
+        }
+
+    </style>
+
+</head>
+<body>
+        <form id="id-form-parameter" method="post" class="add-form-css" hidden>
+
+            <br>
+            <h3 class="login-header">Обновить строку?  №</h3>
+
+
+            <label for="id" hidden>ID</label>
+            <div>
+                <input id="id" type="number" name="id" hidden/>
+            </div>
+
+
+            <label for="datetime">Дата</label>
+            <div>
+                <input id="datetime" type="datetime" name="datetime"/>
+            </div>
+
+
+            <label for="parameter">Параметер</label>
+            <div>
+                <input id="parameter" type="text" name="parameter"/>
+            </div>
+
+
+            <label for="codParameter">Код параметра</label>
+            <div>
+                <input id="codParameter" type="text" name="codParameter"/>
+            </div>
+
+
+            <label for="lastUpdate">Обновление</label>
+            <div>
+                <input id="lastUpdate" type="text" name="lastUpdate"/>
+            </div>
+
+
+            <label for="meaning">Значение</label>
+            <div>
+                <input id="meaning" type="number" name="meaning"/>
+            </div>
+
+
+            <div class="buttons-div">
+
+                <div>
+                    <label id="lab-lab" class="label-error-show" hidden></label>
+                </div>
+
+                <br>
+
+                <button id="btn_cancel" type="button">Отмена</button>
+                <button id="btn_ok" style="margin-left: 25px;" type="button">Ок</button>
+
+            </div>
+
+        </form>
+</body>
+</html>

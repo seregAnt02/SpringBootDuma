@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:v-on="http://www.w3.org/1999/xhtml"
+      xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+
+    <div style="position: relative">
+        <a href="/account/logOut" class="login-logout-css">logout</a>
+
+        <br><br>
+
+        <img class="img-icon-login-css login-logout-css" th:src="@{/images/user-login-icon.png}"/>
+
+        <br><br><br>
+
+        <a href="#" class="login-logout-css">{{login}}</a>
+
+    </div>
+
+    <img class="img_add_row" v-on:click="addRowTable()" src="/images/png-icons-plus.png">
+
+    <h3 class=headers-in-center>Model Parameter</h3>
+
+    <div id="formLoading"></div>
+
+
+    <table class="table-date">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date</th>
+            <th>Parameter</th>
+            <th>CodParameter</th>
+            <th>LastUpdate</th>
+            <th>Meaning</th>
+            <th>*</th>
+            <th>**</th>
+        </tr>
+        </thead>
+        <tr v-for="(row, index) in rows" v-bind:key="row.id">
+            <!--<td>{{index += 1}}</td>-->
+            <td>{{row.id}}</td>
+            <td>{{row.datetime}}</td>
+            <td>{{row.parameter}}</td>
+            <td>{{row.codParameter}}</td>
+            <td>{{row.lastUpdate}}</td>
+            <td>{{row.meaning}}</td>
+            <td>
+                <img v-bind:id="'btn_up' + row.id" v-on:click="eventUpdate(row.id, $event, index)" src="/images/png-icons-put.png" >
+            </td>
+            <td>
+                <img v-bind:id="'btn_del' + row.id" v-on:click="deleteRowParameterAtTable(row.id, $event)" src="/images/png-icons-delete.png">
+                <!--<button type="button" v-on:click="deleteRowParameterAtTable(row.id)">Show Alert</button>-->
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<!--<script
+        src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js">
+</script>-->
+
+<!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+
+<link th:href="@{/css/controllerIndexCss.css}" rel="stylesheet" />
+
+<script type="text/javascript" th:src="@{/js/parameter.js}"></script>
+
+</body>
+</html>

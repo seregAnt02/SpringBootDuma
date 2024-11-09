@@ -1,0 +1,67 @@
+.add-forms-del-ok{
+
+    /* margin: -50%; */
+    border: solid black;
+    background-color: gray;
+    position:fixed;
+    border-radius: 10px;
+    display: block;
+    /* margin-left: 25%; */
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    top: 50%;left: 45%;
+    box-shadow: 5px 5px 10px 3px rgba(51, 47, 47, 0.5);
+}
+
+
+.icons-delete{
+    text-align: center;
+}
+
+.img_add_row{
+    margin-left: 18%;
+    margin-top: 25px;
+}
+
+
+.form-cleaning{
+    display: none;
+}
+
+.headers-in-center{
+    /*margin-top: 100px;*/
+    text-align: center;
+}
+
+td, th {
+    padding: 5px; /* Поля вокруг текста */
+    border: 2px solid black; /* Рамка вокруг ячеек */
+}
+
+th{
+    background: #308c30;
+}
+
+.table-date{
+    /*float: right;*/
+    /*position: center;*/
+    /*display: block;*/
+    text-align: center;
+    /*margin-top: 25px;*/
+    margin-left: 18%;
+    width: 65%;
+    /*border-style: solid;*/
+}
+
+.login-logout-css{
+    position: relative;
+    float: right;
+    margin-right: 20%;
+}
+
+.img-icon-login-css{
+    width: 60px;
+    height: 40px;
+}
+
