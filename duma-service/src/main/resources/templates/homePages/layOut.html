@@ -33,22 +33,23 @@
 
 <div id="layout">
     <div class="container">
+
         <div class="menu-container">
             <div class="menu">
                 <ul>
-                    <li>
+                    <li v-on:click="clickRefMenuCompany()">
                         <label id="ref_company_id" class="header-total">КОМПАНИЯ</label>
                     </li>
 
-                    <li>
+                    <li v-on:click="clickRefMenuServices()">
                         <label id="ref_services_id" class="header-total">УСЛУГИ</label>
                     </li>
 
-                    <li>
+                    <li v-on:click="clickRefMenuPrices()">
                         <label id="ref_prices_id" class="header-total">ЦЕНА</label>
                     </li>
 
-                    <li>
+                    <li v-on:click="clickRefMenuCoordinates()">
                         <label id="ref_coordinate_id" class="header-total">КОНТАКТЫ</label>
                     </li>
 
@@ -75,7 +76,7 @@
 
                 </a>
 
-                <span style="margin-left:-4px">
+                <span style="margin-left:-4px; color: brown">
 
                     втоматизированные системы управления
 

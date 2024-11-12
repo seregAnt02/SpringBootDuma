@@ -26,6 +26,18 @@ public class HomeController {
         return "index";
     }*/
 
+    @GetMapping(path = "/coordinate-page")
+    public String getCoordinate(){ return "homePages/coordinate"; }
+
+    @GetMapping(path = "/price-page")
+    public String getPrice(){ return "homePages/price"; }
+
+    @GetMapping(path = "/company-page")
+    public String getCompanyPage(){return "homePages/company"; }
+
+    @GetMapping(path = "/services-page")
+    public String getServicesPage(){ return "homePages/service"; }
+
     @GetMapping(path = "/start-page")
     public String startPage(){
         return "homePages/startPage";
@@ -37,12 +49,12 @@ public class HomeController {
     }
 
     @GetMapping(path = "/formParameter")
-    public String formParameter(){
+    public String getFormParameter(){
         return "parameterForm";
     }
 
     @GetMapping(path = "/layOut")
-    public String layOut(){
+    public String getLayOut(){
         return "homePages/layOut";
     }
 }

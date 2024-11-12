@@ -10,62 +10,121 @@ let layout = new Vue({
         login: 'abc'
     },
     methods: {
-        changeText: function() {
-            this.message = 'А котята ещё выше';
+        getMenuServices: function () {
+
+        },
+        getMenuLayOut: function() {
+            //this.message = 'А котята ещё выше';
+            let layOut = getLayOut();
+            //console.log(layOut);
         },
         eventMenu: function (){
             buttonClickPanel();
+        },
+        clickRefMenuCompany: function(){
+            clickRefCompany();
+        },
+        clickRefMenuServices: function(){
+            clickRefServices();
+        },
+        clickRefMenuPrices: function(){
+            clickRefPrices();
+        },
+        clickRefMenuCoordinates: function(){
+            clickRefCoordinates();
         }
     },
 });
 
-
-
+//------------------------------//
 let menuContainer = document.getElementsByClassName('menu-container');
 const  menu = document.querySelector(".menu > ul > li");
 
 const panel = document.getElementById("id-panel");
 const sideB = document.getElementsByClassName("side-b");
 
-
-function buttonClickPanel(){
-    if(panel != null){
-        if(panel.classList[1] === "panel-close"){
-            panel.classList.remove("panel-close");
-            panel.classList.add("panel-open");
-            sideB[0].textContent = "close";
-        } else {
-            panel.classList.remove("panel-open");
-            panel.classList.add("panel-close");
-            sideB[0].textContent = "open";
-        }
-
-    }
-
-}
-
-
-//container[0].classList.add("menu-display")
-
-menuContainer[0].classList.add("menu-header");
-
-menu.classList.add("menu-header");
-
+let hostname = window.location.hostname;
 
 const rezults = document.getElementById("rezults");
 
-//------------------------------------
+//------------------------------//
+// menu
+//------------------------------//
+async function clickRefCompany(){
 
-    let layOut = getLayOut();
+    let url = hostname == "localhost" ? "/home/company-page" : "/#/home/company-page";
 
-    //console.log(layOut);
+    let response = await fetch( url, {
 
-//------------------------------------
+        method: 'GET',
+        headers: {
+            'Content-Type': 'text/html;charset=utf-8'
+        }
 
-async function getLayOut(){
+    });
 
-    let hostname = window.location.hostname;
-    let url = hostname == "localhost" ? "/home/start-page" : "/#/home/start-page";
+    if (response.ok === true) {
+
+        let result = await response.text();
+
+        rezults.innerHTML = result;
+
+        return result;
+    }
+    //console.log("company");
+}
+
+async function clickRefServices(){
+
+    let url = hostname == "localhost" ? "/home/services-page" : "/#/home/services-page";
+
+    let response = await fetch( url, {
+
+        method: 'GET',
+        headers: {
+            'Content-Type': 'text/html;charset=utf-8'
+        }
+
+    });
+
+    if (response.ok === true) {
+
+        let result = await response.text();
+
+        rezults.innerHTML = result;
+
+        return result;
+    }
+    //console.log("services");
+}
+
+async function clickRefPrices(){
+
+    let url = hostname == "localhost" ? "/home/price-page" : "/#/home/price-page";
+
+    let response = await fetch( url, {
+
+        method: 'GET',
+        headers: {
+            'Content-Type': 'text/html;charset=utf-8'
+        }
+
+    });
+
+    if (response.ok === true) {
+
+        let result = await response.text();
+
+        rezults.innerHTML = result;
+
+        return result;
+    }
+    //console.log("prices");
+}
+
+async function clickRefCoordinates(){
+
+    let url = hostname == "localhost" ? "/home/coordinate-page" : "/#/home/coordinate-page";
 
     let response = await fetch( url, {
 
@@ -85,3 +144,53 @@ async function getLayOut(){
         return result;
     }
 }
+//------------------------------//
+function buttonClickPanel(){
+    if(panel != null){
+        if(panel.classList[1] === "panel-close"){
+            panel.classList.remove("panel-close");
+            panel.classList.add("panel-open");
+            sideB[0].textContent = "close";
+        } else {
+            panel.classList.remove("panel-open");
+            panel.classList.add("panel-close");
+            sideB[0].textContent = "open";
+        }
+
+    }
+
+}
+//------------------------------//
+layout.getMenuLayOut();
+
+menuContainer[0].classList.add("menu-header");
+menu.classList.add("menu-header");
+
+//------------------------------//
+//------------------------------//
+
+
+async function getLayOut(){
+
+    let url = hostname == "localhost" ? "/home/start-page" : "/#/home/start-page";
+
+    let response = await fetch( url, {
+
+        method: 'GET',
+        headers: {
+            'Content-Type': 'text/html;charset=utf-8'
+        }
+
+    });
+
+    if (response.ok === true) {
+
+        let result = await response.text();
+
+        rezults.innerHTML = result;
+
+        return result;
+    }
+    //------------------------------//
+}
+
