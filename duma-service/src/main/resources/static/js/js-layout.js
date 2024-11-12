@@ -21,21 +21,23 @@ let layout = new Vue({
 
 
 
-let container = document.getElementsByClassName('container');
 let menuContainer = document.getElementsByClassName('menu-container');
 const  menu = document.querySelector(".menu > ul > li");
 
-const  sideButton1 = document.getElementsByClassName("side-button-1");
 const panel = document.getElementById("id-panel");
+const sideB = document.getElementsByClassName("side-b");
+
 
 function buttonClickPanel(){
     if(panel != null){
-        if(panel.classList[0] === "panel-close"){
+        if(panel.classList[1] === "panel-close"){
             panel.classList.remove("panel-close");
             panel.classList.add("panel-open");
+            sideB[0].textContent = "close";
         } else {
             panel.classList.remove("panel-open");
             panel.classList.add("panel-close");
+            sideB[0].textContent = "open";
         }
 
     }
@@ -43,24 +45,43 @@ function buttonClickPanel(){
 }
 
 
-
-/*$('.side-button-1 .side-b').click(function () {
-    var mas = $('.side-panel').css('left').split('px');
-    if (mas.length > 0 && Number.parseInt(mas[0]) > -1)
-    {
-        $(side_panel).css('left', '-750px');
-        $('.side-b').text('close');
-    }
-    else
-    {
-        $(side_panel).css('left', '0px');
-        $('.side-b').text('open');
-    }
-});*/
 //container[0].classList.add("menu-display")
 
 menuContainer[0].classList.add("menu-header");
 
 menu.classList.add("menu-header");
 
-//console.log(container);
+
+const rezults = document.getElementById("rezults");
+
+//------------------------------------
+
+    let layOut = getLayOut();
+
+    //console.log(layOut);
+
+//------------------------------------
+
+async function getLayOut(){
+
+    let hostname = window.location.hostname;
+    let url = hostname == "localhost" ? "/home/start-page" : "/#/home/start-page";
+
+    let response = await fetch( url, {
+
+        method: 'GET',
+        headers: {
+            'Content-Type': 'text/html;charset=utf-8'
+        }
+
+    });
+
+    if (response.ok === true) {
+
+        let result = await response.text();
+
+        rezults.innerHTML = result;
+
+        return result;
+    }
+}

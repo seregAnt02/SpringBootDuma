@@ -26,6 +26,11 @@ public class HomeController {
         return "index";
     }*/
 
+    @GetMapping(path = "/start-page")
+    public String startPage(){
+        return "homePages/startPage";
+    }
+
     @GetMapping(path = "/index")
     public String index(Model model){
         return "homePages/index";
