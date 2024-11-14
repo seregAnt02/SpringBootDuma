@@ -14,8 +14,26 @@ public class structure {
             return "index";
         }
 
-        String layOut(){return "layOut";}
 
+        String getLayOut(){return "layOut";}
+
+
+        String getCoordinate(){return "coordinate";}
+
+
+        String getCompanyPage(){return "company";}
+
+
+        String getServicesPage(){return "service";}
+
+
+        String startPage(){return "start-page";}
+
+
+        String getPrice(){return "price";}
+
+
+        String getFormParameter(){return "parameter";}
     }
 
     class RestApiController{

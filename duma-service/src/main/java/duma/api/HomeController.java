@@ -30,7 +30,7 @@ public class HomeController {
     public String getCoordinate(){ return "homePages/coordinate"; }
 
     @GetMapping(path = "/price-page")
-    public String getPrice(){ return "homePages/price"; }
+    public String getPrice(){ return "homePages/automatications"; }
 
     @GetMapping(path = "/company-page")
     public String getCompanyPage(){return "homePages/company"; }
