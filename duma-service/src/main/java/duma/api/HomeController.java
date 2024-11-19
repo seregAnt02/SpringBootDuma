@@ -2,6 +2,7 @@ package duma.api;
 
 import duma.services.StandartParameterService;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.query.criteria.JpaCteCriteriaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,22 @@ public class HomeController {
         log.info("Список моделей" + dum);
         return "index";
     }*/
+
+
+    @GetMapping(path = "/panel-menu")
+    public String getPanelMenu(){ return "homePages/panelMenu"; }
+
+
+    @GetMapping(path = "/server-administration")
+    public String getServerAdministration(){ return "homePages/serverAdministration"; }
+
+
+    @GetMapping(path = "/development")
+    public String getDevelopment(){ return "homePages/development"; }
+
+
+    @GetMapping(path = "/sphere-activity")
+    public String getSphereActivity(){ return "homePages/sphereActivity"; }
 
     @GetMapping(path = "/coordinate-page")
     public String getCoordinate(){ return "homePages/coordinate"; }

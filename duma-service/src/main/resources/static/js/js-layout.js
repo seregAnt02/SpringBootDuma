@@ -1,4 +1,10 @@
 
+/*window.onload = async function(){
+
+    /!*const vueSphereActivity = await import('/js/jsSphereActivity.js');
+    console.log(vueSphereActivity.vueSphereActivity.user);*!/
+}*/
+
 let layout = new Vue({
     el: '#layout',
     data: {
@@ -7,7 +13,12 @@ let layout = new Vue({
             /*{ id: '1', datetime: '01/01/01', parameter:'MQ-2', codParameter:'asd', lastUpdate:'***', meaning:'1'},
             { id: '2', datetime: '02/01/01', parameter:'MQ-3', codParameter:'abc', lastUpdate:'*', meaning:'2'}*/
         ],
-        login: 'abc'
+        login: 'abc',
+        user: ''/*,
+        contentHtml: '<input type="radio" value="111" v-model="user">' +
+            ' <label>Автоматизаций объектов.</label>' + "<br/>" +
+            '<input type="radio" value="222" v-model="user">' +
+            ' <label>Автом.</label>'*/
     },
     methods: {
         getMenuServices: function () {
@@ -100,7 +111,7 @@ async function clickRefServices(){
 
 async function clickRefPrices(){
 
-    let url = hostname == "localhost" ? "/home/price-page" : "/#/home/price-page";
+    let url = hostname == "localhost" ? "/home/sphere-activity" : "/#/home/sphere-activity";
 
     let response = await fetch( url, {
 
@@ -119,7 +130,6 @@ async function clickRefPrices(){
 
         return result;
     }
-    //console.log("prices");
 }
 
 async function clickRefCoordinates(){
@@ -161,7 +171,7 @@ function buttonClickPanel(){
 
 }
 //------------------------------//
-layout.getMenuLayOut();
+//layout.getMenuLayOut();
 
 menuContainer[0].classList.add("menu-header");
 menu.classList.add("menu-header");
