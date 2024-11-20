@@ -28,8 +28,18 @@
     margin-left: 8px;
 }
 
-.side-button-1{
+.side-button-off{
     background: #337AB7;
+    cursor: pointer; /*Определяет тип, отображаемого курсора.*/
+    border: 2px solid #BFE2FF;
+    width: 46px;
+    height: 40px;
+    margin-top: 10px;
+    align-content: center;
+}
+
+.side-button-on{
+    background: #033050;
     cursor: pointer; /*Определяет тип, отображаемого курсора.*/
     border: 2px solid #BFE2FF;
     width: 46px;

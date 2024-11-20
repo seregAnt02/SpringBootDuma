@@ -74,4 +74,8 @@ public class HomeController {
     public String getLayOut(){
         return "homePages/layOut";
     }
+
+
+    @GetMapping(path = "/test")
+    public String test(){ return "homePages/test/test"; }
 }

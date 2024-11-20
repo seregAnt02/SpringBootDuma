@@ -1,59 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="description" content="Разработке web-приложений, сайтов ASP.NET Core, MVC 5">
     <!--<link rel="icon" href="http://xn--d1aqu.su/favicon.ico" type="image/x-icon">-->
     <title>домашний умный модуль</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/panel/panel.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
 </head>
 <body>
-    <div class="container">
 
-        <div class="col-md-6">
-            <h4>Создание сайта</h4>
-            <ul>
+    <div id="startPage">
+        <div class="container">
+            <div class="row">
+                <div class="text-center mt-5">
+                    <b style="font-size:21px;margin-left:25px">
 
-                <li>Landing Page</li>
-                <li>Сайт-визитка</li>
-                <li>Сайт-каталог</li>
-                <li>Промо-сайт</li>
-                <li>Корпоративный сайт</li>
-            </ul>
+                        <a href="/">
 
-        </div>
+                            <span style="font-size:30px;">А</span>
 
-        <div class="col-md-6">
+                        </a>
 
-            <h4>Разработка веб-приложения</h4>
-            <ul>
-                <li>Автоматизация бизнеса</li>
-                <li>Системы электронного документооборота</li>
-                <li>Интернет-магазин</li>
-                <li>Сервисы и порталы</li>
-                <li>Интранет-системы</li>
-            </ul>
+                        <span style="margin-left:-4px; color: brown">
 
-        </div>
+                    втоматизированные системы управления
+
+                </span>
+
+                    </b>
+                </div>
 
 
-
-        <div class="col-md-12" style="text-align:center;margin-top:45px">
-
-            <h4>Адаптивность</h4>
-
-            Ваш сайт либо веб-приложение будет автоматически хорошо смотреться на смартфонах, планшетах и компьютерах.
-
-            <h4>Кроссплатформенность</h4>
-
-            Приложение, которое работает под любой операционной системой, любым браузером и устройством.
+                <div class="mt-5">
+                    <div id="idButtonPanel" v-on:click="eventPanel()" class="side-button-off">
+                        <div class="side-b">close</div>
+                    </div>
+                </div>
 
 
-            <h4>Сопровождение сайтов, веб-приложений </h4>
+                <div class="mt-5 col-md-6">
+                    <h4 class="text-center">Создание сайта</h4>
+                    <ul>
+                        <li>Landing Page</li>
+                        <li>Сайт-визитка</li>
+                        <li>Сайт-каталог</li>
+                        <li>Промо-сайт</li>
+                        <li>Корпоративный сайт</li>
+                    </ul>
+                </div>
 
-            Услуги по наполнению контентом, сопровождению и комплексному техническому обслуживанию.
+
+                <div class="mt-5 col-md-6">
+                    <h4 class="text-center">Разработка веб-приложения</h4>
+                    <ul>
+                        <li>Автоматизация бизнеса</li>
+                        <li>Системы электронного документооборота</li>
+                        <li>Интернет-магазин</li>
+                        <li>Сервисы и порталы</li>
+                        <li>Интранет-системы</li>
+                    </ul>
+                </div>
+
+
+                <div class="col-md-12" style="text-align:center;margin-top:45px">
+
+                    <h4>Адаптивность</h4>
+
+                    Ваш сайт либо веб-приложение будет автоматически хорошо смотреться на смартфонах, планшетах и компьютерах.
+
+                    <h4>Кроссплатформенность</h4>
+
+                    Приложение, которое работает под любой операционной системой, любым браузером и устройством.
+
+
+                    <h4>Сопровождение сайтов, веб-приложений </h4>
+
+                    Услуги по наполнению контентом, сопровождению и комплексному техническому обслуживанию.
+
+                </div>
+
+            </div>
+
+            <hr />
+
+            <div id="form-load" style="margin-top: -490px"></div>
 
         </div>
 
     </div>
+
+    <script src="/js/jsStartPage.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

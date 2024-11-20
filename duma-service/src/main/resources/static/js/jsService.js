@@ -4,8 +4,8 @@ let startPage = import('/js/jsStartPage.js');
 //-----------------------------//
 //-----------------------------//
 
-let company = new Vue({
-    el: '#company',
+let service = new Vue({
+    el: '#service',
     data: {
         rows: [
         ],
