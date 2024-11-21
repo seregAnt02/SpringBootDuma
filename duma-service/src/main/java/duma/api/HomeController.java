@@ -47,7 +47,7 @@ public class HomeController {
     public String getCoordinate(){ return "homePages/coordinate"; }
 
     @GetMapping(path = "/price-page")
-    public String getPrice(){ return "homePages/automatications"; }
+    public String getPrice(){ return "homePages/sphereActivity"; }
 
     @GetMapping(path = "/company-page")
     public String getCompanyPage(){return "homePages/company"; }

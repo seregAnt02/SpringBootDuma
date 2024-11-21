@@ -1,28 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Coordinate</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/panel/panel.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <h4 class="text-center col-md-offset-4">Координаты</h4>
-            <div class="col-md-4 col-md-offset-5">
-                <address>
-                    <strong>Офис:</strong><br />
-                    город<br />
-                    индекс:адрес<br />
-                    <!--<abbr title="Phone">P:</abbr> ### -->
-                </address>
+
+    <div id="coordinate">
+
+        <div class="container">
+
+
+            <div class="text-center mt-5">
+                <b style="font-size:21px;margin-left:25px">
+
+                    <a href="http://localhost:8180/home/start-page">
+
+                        <span style="font-size:30px;">А</span>
+
+                    </a>
+
+                    <span style="margin-left:-4px; color: brown">
+
+                        втоматизированные системы управления
+
+                    </span>
+
+                </b>
             </div>
-            <div>
-                <address>
-                    <strong>Email:</strong> email<br />
-                    <strong>Phone:</strong> ###
-                </address>
+
+
+            <div class="mt-5">
+                <div id="idButtonPanel" v-on:click="eventPanel()" class="side-button-off">
+                    <div class="side-b">close</div>
+                </div>
             </div>
+
+
+            <div class="mt-5">
+                <h4 class="text-center">Координаты</h4>
+                <div>
+                    <address>
+                        <strong>Офис:</strong><br />
+                        город<br />
+                        индекс:адрес<br />
+                        <!--<abbr title="Phone">P:</abbr> ### -->
+                    </address>
+                </div>
+                <div>
+                    <address>
+                        <strong>Email:</strong> email<br />
+                        <strong>Phone:</strong> ###
+                    </address>
+                </div>
+            </div>
+
+            <hr />
+
+            <div id="form-load" style="margin-top: -260px"></div>
+
         </div>
+
     </div>
+
+    <script src="/js/jsCoordinate.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

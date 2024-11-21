@@ -1,16 +1,16 @@
 
+
 //-----------------------------//
 let startPage = import('/js/jsStartPage.js');
 //-----------------------------//
 //-----------------------------//
 
-let company = new Vue({
-    el: '#price',
+let coordinate = new Vue({
+    el: '#coordinate',
     data: {
         rows: [
         ],
-        login: 'abc',
-        user: ''
+        login: 'abc'
     },
     methods: {
         loadPanel: function (){
