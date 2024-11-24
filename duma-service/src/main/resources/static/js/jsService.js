@@ -37,9 +37,7 @@ const idButtonPanel = document.getElementById("idButtonPanel");
 
 //----------------------------//
 
-startPage.then(r => {
-    r.startPage.loadPanel();
-})
+service.loadPanel();
 
 //service.setMarginTop(idButtonPanel, formLoad);
 

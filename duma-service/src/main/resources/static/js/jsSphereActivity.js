@@ -4,7 +4,7 @@ let startPage = import('/js/jsStartPage.js');
 //-----------------------------//
 //-----------------------------//
 
-let company = new Vue({
+let price = new Vue({
     el: '#price',
     data: {
         rows: [
@@ -32,8 +32,6 @@ let company = new Vue({
 
 //----------------------------//
 
-startPage.then(r => {
-    r.startPage.loadPanel();
-})
+price.loadPanel();
 
 //----------------------------//

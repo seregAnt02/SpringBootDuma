@@ -32,8 +32,6 @@ let coordinate = new Vue({
 
 //----------------------------//
 
-startPage.then(r => {
-    r.startPage.loadPanel();
-})
+coordinate.loadPanel();
 
 //----------------------------//
