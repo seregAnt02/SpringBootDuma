@@ -9,6 +9,14 @@ import java.util.List;
 /// server
 public class structure {
 
+
+    // mobil version
+
+    /*
+    *
+    * */
+
+
     class HomeController{
         String index(){
             return "index";

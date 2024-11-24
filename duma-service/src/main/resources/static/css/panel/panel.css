@@ -1,3 +1,17 @@
+
+
+.block-top-level1{
+    margin-top: -500px;
+}
+.block-top-level2{
+    margin-top: -300px;
+}
+
+.block-top{
+    margin-top: -450px;
+    margin-bottom: 25px;
+}
+
 .side-panel{
     position:relative;
     /*z-index: 999999;*/

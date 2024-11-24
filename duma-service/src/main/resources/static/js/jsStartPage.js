@@ -85,3 +85,19 @@ async function getPanelMenu(){
     }
     //------------------------------//
 }
+
+/*
+window.addEventListener("resize", function () {
+    const recResizeElement = function (root) {
+        Array.prototype.forEach.call(root.childNodes, function (el) {
+
+            const resizeEvent = document.createEvent("HTMLEvents");
+            resizeEvent.initEvent("resize", false, true);
+            const propagate = el.dispatchEvent(resizeEvent);
+
+            if (propagate)
+                recResizeElement(el);
+        });
+    };
+    recResizeElement(document.body);
+});*/
