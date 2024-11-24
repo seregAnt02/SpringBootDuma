@@ -30,9 +30,13 @@ let company = new Vue({
 });
 
 //----------------------------//
+/*const formLoad = document.getElementById("form-load");
+const idButtonPanel = document.getElementById("idButtonPanel");*/
+//----------------------------//
 
 startPage.then(r => {
     r.startPage.loadPanel();
 })
 
+//company.setMarginTop(idButtonPanel, formLoad);
 //----------------------------//

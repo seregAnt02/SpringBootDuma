@@ -30,6 +30,10 @@ export let startPage = new Vue({
             );
 
 
+        },
+        setMarginTop: function (idButton, idPanel){
+            let sumOffset = idPanel.offsetTop - (idButton.offsetTop + 35) ;
+            idPanel.style.marginTop = (-sumOffset) + "px";
         }
     },
 });
@@ -43,6 +47,8 @@ const idButtonPanel = document.getElementById("idButtonPanel");
 //----------------------------//
 
 startPage.loadPanel();
+
+startPage.setMarginTop(idButtonPanel, formLoad);
 
 //----------------------------//
 

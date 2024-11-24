@@ -1,17 +1,4 @@
 
-
-.block-top-level1{
-    margin-top: -500px;
-}
-.block-top-level2{
-    margin-top: -300px;
-}
-
-.block-top{
-    margin-top: -450px;
-    margin-bottom: 25px;
-}
-
 .side-panel{
     position:relative;
     /*z-index: 999999;*/
@@ -23,6 +10,7 @@
     box-shadow: 10px 0 20px rgba(0,0,0,0.4);
     color: #FFF;
     padding: 40px 20px;
+    border-radius: 20px;
 }
 
 .panel-close {
@@ -50,6 +38,7 @@
     height: 40px;
     margin-top: 10px;
     align-content: center;
+    border-radius: 5px;
 }
 
 .side-button-on{
@@ -60,6 +49,7 @@
     height: 40px;
     margin-top: 10px;
     align-content: center;
+    border-radius: 5px;
 }
 
 .side-close{

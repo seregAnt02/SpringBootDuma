@@ -30,9 +30,17 @@ let service = new Vue({
 });
 
 //----------------------------//
+/*
+const formLoad = document.getElementById("form-load");
+const idButtonPanel = document.getElementById("idButtonPanel");
+*/
+
+//----------------------------//
 
 startPage.then(r => {
     r.startPage.loadPanel();
 })
+
+//service.setMarginTop(idButtonPanel, formLoad);
 
 //----------------------------//
