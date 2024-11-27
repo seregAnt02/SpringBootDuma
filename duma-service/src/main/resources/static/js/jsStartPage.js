@@ -14,6 +14,15 @@ export let startPage = new Vue({
             panelMenu.then( r => {
                     this.panel = document.getElementById("id-panel");
                     this.sideB = document.getElementsByClassName("side-b");
+
+                    const panelHeaderRef = document.getElementsByClassName("panelHeaderRef");
+
+
+                    for (let i = 0; i < panelHeaderRef.length; i++) {
+                        panelHeaderRef[i].addEventListener("click",
+                            () => EventAnimationsClick(panelHeaderRef[i]));
+                    }
+
                 }
             );
         },
@@ -43,12 +52,17 @@ export let startPage = new Vue({
 let hostname = window.location.hostname;
 const formLoad = document.getElementById("form-load");
 const idButtonPanel = document.getElementById("idButtonPanel");
+const idMeltingLines = document.getElementById("idMeltingLines");
 //----------------------------//
 //----------------------------//
 
 startPage.loadPanel();
 
+
 startPage.setMarginTop(idButtonPanel, formLoad);
+
+
+//startPage.clickPanelHeaderRef();
 
 //----------------------------//
 
@@ -92,18 +106,6 @@ async function getPanelMenu(){
     //------------------------------//
 }
 
-/*
-window.addEventListener("resize", function () {
-    const recResizeElement = function (root) {
-        Array.prototype.forEach.call(root.childNodes, function (el) {
-
-            const resizeEvent = document.createEvent("HTMLEvents");
-            resizeEvent.initEvent("resize", false, true);
-            const propagate = el.dispatchEvent(resizeEvent);
-
-            if (propagate)
-                recResizeElement(el);
-        });
-    };
-    recResizeElement(document.body);
-});*/
+async function EventAnimationsClick(ref){
+    idMeltingLines.removeAttribute("hidden");
+}
