@@ -30,9 +30,9 @@ public class SecurityConfiguration {
                         .requestMatchers("/home/vue").hasAuthority("admin")
                         .requestMatchers("/home/**").permitAll()
                         .requestMatchers("/parameter/**").hasAuthority("admin")
-                        //.requestMatchers("/parameter/**").permitAll()
                         .requestMatchers("/account/**").hasAuthority("admin")
                         .requestMatchers("/account/**").hasAuthority("user")
+                        .requestMatchers("/video/**").permitAll()
                 )
                 .formLogin(Customizer.withDefaults())
                 .build();

@@ -21,7 +21,7 @@
   <script>
     // ---------------------------------------------------------
     function Video_dash(id_player, url) {
-      var player = dashjs.MediaPlayer().create();
+      const player = dashjs.MediaPlayer().create();
       player.initialize(document.querySelector(id_player), url, false);
 
       id_player = null;
@@ -31,7 +31,7 @@
     }
     // ---------------------------------------------------------
     function setupVideo(id_player, url) {
-      var context = new Dash.di.DashContext();
+      const context = new Dash.di.DashContext();
       var player = new MediaPlayer(context);
       player.startup();
       player.attachView(document.querySelector(id_player));
@@ -47,7 +47,6 @@
   <button onclick="Show_player(0)"><img src="~/Images/screen_1.png" width="30" height="30"></button>
   <button onclick="Show_player(4)"><img src="~/Images/screen_4.jpg" width="30" height="30"></button>
   <!--<button onclick="Remove_video()" class="xxx">remove</button>-->
-  @Html.DropDownList("monitor", new SelectList(new string[] { "0", "1", "2", "3" }), new { @class = "monitor_drop_down" })
 </div>
 <script>
   // ---------------------------------------------------------
@@ -162,11 +161,11 @@
   ());
 </script>
 <div>
-  @if (ViewBag.IsAuthenticated == "true") {
+
   <script>
     Insert_video();
   </script>
-  }
+
 </div>
 </body>
 </html>
