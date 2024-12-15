@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+
+  dumaservice:
+    build:
+      dockerfile: ./Dockerfile
+    image: openjdk:19-jdk
+    volumes:
+      - /home/serega02/local/video/window_0:/video/window_0
+    ports:
+      - "8180:8180"

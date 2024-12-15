@@ -16,7 +16,7 @@ public class SecurityConfiguration {
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring()
                 .requestMatchers("/resources/**", "/static/**", "/css/**",
-                        "/js/**", "/images/**", "/favicon.ico");
+                        "/js/**", "/images/**", "/favicon.ico", "/video/**");
     }
 
 
@@ -32,7 +32,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/parameter/**").hasAuthority("admin")
                         .requestMatchers("/account/**").hasAuthority("admin")
                         .requestMatchers("/account/**").hasAuthority("user")
-                        .requestMatchers("/video/**").permitAll()
+                        .requestMatchers("/player/**").permitAll()
                 )
                 .formLogin(Customizer.withDefaults())
                 .build();
