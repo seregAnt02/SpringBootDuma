@@ -32,7 +32,6 @@ public class SecurityConfiguration {
                         .requestMatchers("/parameter/**").hasAuthority("admin")
                         .requestMatchers("/account/**").hasAuthority("admin")
                         .requestMatchers("/account/**").hasAuthority("user")
-                        .requestMatchers("/player/**").permitAll()
                 )
                 .formLogin(Customizer.withDefaults())
                 .build();
