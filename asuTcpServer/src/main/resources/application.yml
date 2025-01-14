@@ -1,0 +1,15 @@
+server:
+  port: 6100
+  error:
+    whitelabel:
+      enabled: false
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    show-sql: true
+  main:
+    web-application-type: none

@@ -1,8 +1,8 @@
 package duma.security;
 
 
-import main.java.duma.model.User;
-import main.java.duma.repository.UserRepository;
+import duma.model.User;
+import duma.repository.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(username));
 
         return new org.springframework.security.core.userdetails.User(user.getLogin(),
-                new main.java.duma.security.CustomPasswordEncoder().encode(user.getPassword()), List.of(new SimpleGrantedAuthority(user.getRole())
+                new duma.security.CustomPasswordEncoder().encode(user.getPassword()), List.of(new SimpleGrantedAuthority(user.getRole())
                 /*new SimpleGrantedAuthority("admin"),
                 new SimpleGrantedAuthority("user")*/
         ));

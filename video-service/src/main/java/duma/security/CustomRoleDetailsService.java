@@ -1,7 +1,7 @@
-package main.java.duma.security;
+package duma.security;
 
-import main.java.duma.model.Role;
-import main.java.duma.repository.RoleRepository;
+import duma.model.Role;
+import duma.repository.RoleRepository;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,9 +11,9 @@ public class CustomRoleDetailsService {
 
     public CustomRoleDetailsService(RoleRepository repository) {
         this.repository = repository;
-        addRole("admin");
+        /*addRole("admin");
         addRole("user");
-        addRole("auth");
+        addRole("auth");*/
     }
 
     private void addRole(String nameRole){

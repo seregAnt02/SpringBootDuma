@@ -1,4 +1,4 @@
-package main.java.duma.model;
+package duma.model;
 
 
 import jakarta.persistence.*;

@@ -16,7 +16,7 @@ public class StandartAccountService {
 
     public StandartAccountService(UserRepository repository) {
         this.repository = repository;
-        addUser("admin", "pass", "admin");
+        //addUser("admin", "pass", "admin");
     }
 
     public List<User> getUserAll(){

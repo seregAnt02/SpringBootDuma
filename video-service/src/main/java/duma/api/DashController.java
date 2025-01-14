@@ -1,4 +1,4 @@
-package main.java.duma.api;
+package duma.api;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

@@ -11,9 +11,9 @@ public class CustomRoleDetailsService {
 
     public CustomRoleDetailsService(RoleRepository repository) {
         this.repository = repository;
-        addRole("admin");
+        /*addRole("admin");
         addRole("user");
-        addRole("auth");
+        addRole("auth");*/
     }
 
     private void addRole(String nameRole){
