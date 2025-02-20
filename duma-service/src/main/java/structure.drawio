@@ -1,11 +1,11 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.15">
   <diagram name="Страница — 1" id="Rlb4geR-uArXS-s5FVeR">
-    <mxGraphModel dx="1172" dy="481" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1999" dy="1650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="RMiwXwrSJ8WDgeKXlqVc-3" value="" style="group;textShadow=1;" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="570" y="130" width="130" height="130" as="geometry" />
+          <mxGeometry x="760" y="140" width="130" height="130" as="geometry" />
         </mxCell>
         <mxCell id="RMiwXwrSJ8WDgeKXlqVc-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;shadow=1;" parent="RMiwXwrSJ8WDgeKXlqVc-3" vertex="1">
           <mxGeometry width="130" height="130" as="geometry" />
@@ -14,13 +14,37 @@
           <mxGeometry x="35" y="40" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="RMiwXwrSJ8WDgeKXlqVc-6" value="" style="group;whiteSpace=wrap;" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="30" y="140" width="290" height="110" as="geometry" />
+          <mxGeometry x="-140" y="140" width="290" height="110" as="geometry" />
         </mxCell>
         <mxCell id="RMiwXwrSJ8WDgeKXlqVc-4" value="" style="rounded=1;whiteSpace=wrap;html=1;" parent="RMiwXwrSJ8WDgeKXlqVc-6" vertex="1">
           <mxGeometry width="290" height="110" as="geometry" />
         </mxCell>
         <mxCell id="RMiwXwrSJ8WDgeKXlqVc-5" value="&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace;&quot;&gt;&lt;span&gt;&lt;font&gt;1. Создать функционал CRUID - &lt;/font&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace;&quot;&gt;&lt;span&gt;&lt;font&gt;операций с полным циклом запроса.&lt;/font&gt;&lt;/span&gt;&lt;/pre&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=default;" parent="RMiwXwrSJ8WDgeKXlqVc-6" vertex="1">
           <mxGeometry x="20" y="18.33" width="250" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="WDvWPsBKZVxb70UoKGr9-5" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="120" as="sourcePoint" />
+            <mxPoint x="270" y="70" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="190" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WDvWPsBKZVxb70UoKGr9-9" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-80" y="110" as="sourcePoint" />
+            <mxPoint x="30" y="40" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-10" y="70" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WDvWPsBKZVxb70UoKGr9-8" value="&lt;pre style=&quot;background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace;&quot;&gt;&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace;&quot;&gt;&lt;br&gt;&lt;span style=&quot;color:#bbb529;&quot;&gt;@GetMapping&lt;/span&gt;(path = &lt;span style=&quot;color:#6a8759;&quot;&gt;&quot;/index&quot;&lt;/span&gt;)&lt;br&gt;&lt;span style=&quot;color:#cc7832;&quot;&gt;public &lt;/span&gt;String &lt;span style=&quot;color:#ffc66d;&quot;&gt;index&lt;/span&gt;(Model model){&lt;br&gt;    &lt;span style=&quot;color:#cc7832;&quot;&gt;return &lt;/span&gt;&lt;span style=&quot;color:#6a8759;&quot;&gt;&quot;homePages/index&quot;&lt;/span&gt;&lt;span style=&quot;color:#cc7832;&quot;&gt;;&lt;br&gt;&lt;/span&gt;}&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace;&quot;&gt;&lt;br&gt;&lt;/pre&gt;&lt;/pre&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry y="-100" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="WDvWPsBKZVxb70UoKGr9-3" value="&lt;pre style=&quot;background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;b&gt;Parameter &lt;span style=&quot;color: rgb(255, 198, 109);&quot;&gt;create&lt;/span&gt;(){&lt;/b&gt;&lt;/font&gt;&lt;/pre&gt;&lt;pre style=&quot;background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;b&gt;&lt;span style=&quot;color: rgb(204, 120, 50);&quot;&gt;return null;&lt;/span&gt;}&lt;/b&gt;&lt;/font&gt;&lt;/pre&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="10" width="230" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
