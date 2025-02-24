@@ -330,23 +330,6 @@ public class structure {
         String addUser(@RequestBody User user){return null;}
     }
 
-    class UserDataController{
-
-        /*
-
-        */
-
-
-        void Audio(){}
-
-
-        void Dash(){}
-
-
-        void VideoDash(){} 
-    }
-
-
 }
 
 
