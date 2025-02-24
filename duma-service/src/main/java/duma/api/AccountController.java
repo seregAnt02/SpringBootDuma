@@ -30,10 +30,10 @@ public class AccountController {
         return "accountPages/allUser";
     }
 
-    @GetMapping(path = "/register")
+    /*@GetMapping(path = "/register")
     public String registerUser(){
         return "accountPages/registerUser";
-    }
+    }*/
 
     @PostMapping
     public String addUser(@RequestBody User user){
