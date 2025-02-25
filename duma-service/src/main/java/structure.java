@@ -166,7 +166,7 @@ public class structure {
     /*
     Создать репозиторий к базе данных в виде интерфейса ParameterRepository,
     который наследуется от JpaRepository<Parameter, Long> с параметрами типа
-    Parameter и Long, для запросов к базе данных с объектами типа Parameter.
+    Parameter и Long, для запросов к базе данных с объектом типа Parameter.
     */
     public interface ParameterRepository extends JpaRepository<Parameter, Long> {
     }
@@ -329,23 +329,6 @@ public class structure {
 
         String addUser(@RequestBody User user){return null;}
     }
-
-    class UserDataController{
-
-        /*
-
-        */
-
-
-        void Audio(){}
-
-
-        void Dash(){}
-
-
-        void VideoDash(){} 
-    }
-
 
 }
 
